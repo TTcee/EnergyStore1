@@ -2,7 +2,7 @@ export default function FindUs() {
   return (
     <section
       id="findus"
-      className="min-h-screen flex items-center justify-center bg-gray-300 text-black px-10"
+      className="min-h-screen flex items-center justify-center  text-black px-10"
     >
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
         {/* Ліва частина */}

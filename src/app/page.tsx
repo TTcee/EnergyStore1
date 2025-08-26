@@ -5,6 +5,8 @@ import ProductionServices from "@sections/ProductionServices";
 import RepairServices from "@sections/RepairServices";
 import WhyChooseUs from "@sections/WhyChooseUs";
 import FindUs from "@sections/FindUs";
+import Image from 'next/image';
+
 
 
 export default function HomePage() {
