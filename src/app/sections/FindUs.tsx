@@ -4,7 +4,7 @@ export default function FindUs() {
   return (
     <section
       id="findus"
-      className="min-h-screen flex items-center justify-center  text-black px-4 sm:px-6 lg:px-10 py-10"
+      className="min-h-screen flex items-center justify-center  text-black px-4 sm:px-6 lg:px-10 py-10
     >
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Ліва частина */}
