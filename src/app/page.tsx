@@ -1,24 +1,22 @@
-export default function Home() {
+import MainPage from "@sections/MainPage";
+import AboutUs from "@sections/AboutUs";
+import WhatWeOffer from "@sections/WhatWeOffer";
+import ProductionServices from "@sections/ProductionServices";
+import RepairServices from "@sections/RepairServices";
+import WhyChooseUs from "@sections/WhyChooseUs";
+import FindUs from "@sections/FindUs";
+
+
+export default function HomePage() {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#0b0b23] to-[#1c1c34] flex flex-col items-center justify-center px-8 sm:px-20 text-white">
-      {/* Основний блок */}
-      <div className="max-w-3xl text-center">
-        <h1 className="text-4xl sm:text-6xl font-extrabold mb-6">
-          ВИРОБНИЦТВО <br /> СУЧАСНИХ АКУМУЛЯТОРІВ
-        </h1>
-        <p className="text-lg sm:text-xl mb-10 text-gray-300">
-          Ми дбаємо про те, щоб ваша техніка ніколи не залишалася без живлення.
-          Від ремонту до виробництва — надійна енергія у кожному рішенні.
-        </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <button className="bg-purple-600 hover:bg-purple-700 transition-colors text-white px-6 py-3 rounded-lg font-semibold">
-            Отримати консультацію
-          </button>
-          <button className="border border-gray-400 hover:border-white transition-colors text-white px-6 py-3 rounded-lg font-semibold">
-            Список товарів
-          </button>
-        </div>
-      </div>
-    </div>
+    <main>
+      <MainPage />
+      <AboutUs />
+      <WhatWeOffer />
+      <ProductionServices />
+      <RepairServices />
+      <WhyChooseUs />
+      <FindUs />
+    </main>
   );
 }
