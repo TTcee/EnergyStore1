@@ -1,3 +1,4 @@
+
 export default function MainPage() {
   return (
     <section id="hero" className="min-h-screen flex  text-white">
