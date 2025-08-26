@@ -1,6 +1,29 @@
-import { Clock, Award, Settings, Shield } from "lucide-react"; 
+import { Clock, Award, Settings, Shield } from "lucide-react";
 
 export default function WhyChooseUs() {
+  const cards = [
+    {
+      icon: <Clock className="w-8 h-8 text-yellow-400 mr-4" />,
+      title: "Досвід понад 13 років",
+      text: "Маємо понад 13 років досвіду у виробництві та ремонті акумуляторів, тому гарантуємо якість і надійність у кожному рішенні.",
+    },
+    {
+      icon: <Award className="w-8 h-8 text-yellow-400 mr-4" />,
+      title: "Надійність та довговічність",
+      text: "Застосовуємо перевірені літієві елементи та сучасне складання, щоб батареї працювали стабільно й витримували складні умови.",
+    },
+    {
+      icon: <Settings className="w-8 h-8 text-yellow-400 mr-4" />,
+      title: "Індивідуальні рішення",
+      text: "Розробляємо акумулятори з потрібною ємністю та системою управління живленням під конкретні задачі клієнта.",
+    },
+    {
+      icon: <Shield className="w-8 h-8 text-yellow-400 mr-4" />,
+      title: "Безпека понад усе",
+      text: "Наші батареї мають захист від перегріву та перевантаження, що гарантує максимальну безпеку під час використання.",
+    },
+  ];
+
   return (
     <section
       id="whyus"
@@ -15,50 +38,25 @@ export default function WhyChooseUs() {
 
           {/* Карточки */}
           <div className="space-y-6">
-            <div className="flex items-start p-5 bg-gray-800 rounded-xl shadow-md">
-              <Clock className="w-8 h-8 text-yellow-400 mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold">Досвід понад 13 років</h3>
-                <p className="text-gray-300 text-sm">
-                  Маємо понад 13 років досвіду у виробництві та ремонті
-                  акумуляторів, тому гарантуємо якість і надійність у кожному
-                  рішенні.
-                </p>
+            {cards.map((card, index) => (
+              <div
+                key={index}
+                className="flex items-start p-5
+                           bg-[linear-gradient(0deg,rgba(0,0,0,0.2),rgba(0,0,0,0.2)),linear-gradient(123.63deg,rgba(255,255,255,0.14)_22.7%,rgba(153,153,153,0.04)_99.25%)]
+                           shadow-[4px_4px_13px_rgba(0,0,0,0.21)]
+                           backdrop-blur-[22.5px]
+                           rounded-[10px]
+                           box-border
+                           border border-white
+                           border-[0px]"
+              >
+                {card.icon}
+                <div>
+                  <h3 className="text-lg font-semibold">{card.title}</h3>
+                  <p className="text-gray-300 text-sm">{card.text}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="flex items-start p-5 bg-gray-800 rounded-xl shadow-md">
-              <Award className="w-8 h-8 text-yellow-400 mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold">Надійність та довговічність</h3>
-                <p className="text-gray-300 text-sm">
-                  Застосовуємо перевірені літієві елементи та сучасне складання,
-                  щоб батареї працювали стабільно й витримували складні умови.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start p-5 bg-gray-800 rounded-xl shadow-md">
-              <Settings className="w-8 h-8 text-yellow-400 mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold">Індивідуальні рішення</h3>
-                <p className="text-gray-300 text-sm">
-                  Розробляємо акумулятори з потрібною ємністю та системою
-                  управління живленням під конкретні задачі клієнта.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start p-5 bg-gray-800 rounded-xl shadow-md">
-              <Shield className="w-8 h-8 text-yellow-400 mr-4" />
-              <div>
-                <h3 className="text-lg font-semibold">Безпека понад усе</h3>
-                <p className="text-gray-300 text-sm">
-                  Наші батареї мають захист від перегріву та перевантаження, що
-                  гарантує максимальну безпеку під час використання.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
