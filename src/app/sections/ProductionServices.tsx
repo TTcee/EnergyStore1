@@ -13,7 +13,7 @@ export default function ProductionServices() {
   return (
     <section
       id="production"
-      className="min-h-screen flex flex-col items-center justify-center bg-blue-200 text-black"
+      className="min-h-screen flex flex-col items-center justify-center  text-black"
     >
       <h2 className="text-3xl font-semibold mb-8">Виробничі послуги</h2>
 
