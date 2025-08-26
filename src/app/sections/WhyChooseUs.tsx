@@ -62,14 +62,11 @@ export default function WhyChooseUs() {
 
         {/* Права частина — квадрат з точок */}
         <div className="relative hidden md:flex justify-center items-center">
-          <div className="mt-16 grid grid-cols-36 gap-3">
-            {Array.from({ length: 1116 }).map((_, i) => (
-              <span
-                key={i}
-                className="w-1 h-1 rounded-full bg-gray-500 opacity-70"
-              ></span>
-            ))}
-          </div>
+          <img
+            src="/dotsForWHYUSPage.png" // заміни на свою картинку
+            alt="Про нашу компанію"
+            className=" mt-10 "
+          />
         </div>
       </div>
     </section>

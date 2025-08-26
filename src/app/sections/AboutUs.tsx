@@ -2,28 +2,29 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center from-gray-900 to-gray-800 text-white px-6 py-16"
+      className="min-h-screen flex items-center justify-center text-white px-6 py-16"
     >
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-        {/* Ліва колонка (картинка) */}
-        <div className="relative">
-          <img
-            src="/about-us.jpg" // заміни на свою картинку
-            alt="Про нашу компанію"
-            className="rounded-lg shadow-lg w-full h-auto"
-          />
-          {/* декоративні точки */}
-          <div className="absolute -bottom-6 -left-6 w-40 h-40 hidden md:block">
-            <div className="grid grid-cols-8 gap-2">
-              {Array.from({ length: 64 }).map((_, i) => (
-                <span key={i} className="w-1 h-1 rounded-full bg-gray-500"></span>
-              ))}
-            </div>
+        {/* Ліва колонка (картинка + точки) */}
+        <div className="relative order-1 lg:order-none w-full flex justify-center lg:justify-start">
+          <div className="relative w-4/5 sm:w-3/5 lg:w-full">
+            <img
+              src="/example.png" // заміни на свою картинку
+              alt="Про нашу компанію"
+              className="rounded-lg shadow-lg w-full h-auto"
+            />
+            {/* декоративні точки */}
+           <img
+             src="/dotsForSecPage.png"
+             alt="Декоративні точки"
+             className="absolute z-[-10] top-12 sm:top-12 md:top-18 lg:top-20
+             left-[-30] sm:left-[-30] md:left-[-42] lg:left-[-48] w-full h-full object-contain"
+              />
           </div>
         </div>
 
         {/* Права колонка (текст) */}
-        <div className="space-y-6">
+        <div className="order-0 lg:order-none space-y-6">
           <h2 className="text-3xl md:text-4xl font-extrabold">
             Про нашу компанію
           </h2>
