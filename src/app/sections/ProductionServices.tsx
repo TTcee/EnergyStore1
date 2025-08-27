@@ -20,10 +20,11 @@ const ProductCard = ({
   href 
 }: ProductCardProps) => {
   return (
-    <div className="bg-gray-800 rounded-lg p-6 text-white max-w-sm">
+    <div className="bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
+             backdrop-blur-[9px] rounded-[6px] box-border rounded-lg p-6 text-white max-w-sm">
       {/* Зображення товару */}
       <div className="mb-6 flex justify-center">
-        <div className="w-32 h-32 bg-gray-700 rounded-lg flex items-center justify-center">
+        <div className=" flex items-center justify-center">
           {image ? (
             <img src={image} alt={title} className="w-full h-full object-contain rounded-lg" />
           ) : (
@@ -62,14 +63,14 @@ export default function ProductionServices() {
       description: "Надійне та зручне рішення для велосипедів: компактне кріплення, захист і гарний зовнішній дизайн.",
       price: "1 100",
       href: "/products/Hailong",
-      image: undefined
+      image: "/hailong.png"
     },
     {
       title: "Акумулятор під Ваш розмір",
       description: "Акумулятори у термоусадці — надійні, компактні та готові до використання.",
       price: "1 200",
       href: "/products/YourSize",
-      image: undefined
+      image: "/termo.png"
     },
     {
       title: "Акумулятор з Ваших елементів",
@@ -90,7 +91,7 @@ export default function ProductionServices() {
       description: "Оптимальні елементи та надійна збірка під ваші індивідуальні задачі.",
       price: "2 100",
       href: "/products/Individual",
-      image: undefined
+      image: "/individual.png"
     },
     {
       title: "Акумулятори для систем збереження енергії",
