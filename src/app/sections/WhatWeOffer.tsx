@@ -18,7 +18,7 @@ const ServiceCard = ({
   return (
     <div className=" w-[528px] h-[350px] left-[211px] top-[1870px] 
              bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
-             backdrop-blur-[9px] rounded-[6px] box-border pl-10 pt-20 pr-10">
+             backdrop-blur-[9px] rounded-[6px] box-border pl-10 pt-15 pr-10">
       {/* Назва послуги */}
       <h3 className="text-2xl font-bold mb-4">{title}</h3>
 
@@ -60,6 +60,8 @@ export default function WhatWeOffer() {
       id="offer" 
       className="min-h-screen flex flex-col items-center justify-center  text-white py-16 px-4 relative overflow-hidden"
     >
+            <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
+
       {/* Декоративні точки */}
       <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-[-630] mt-17" /></div>
             <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-20 mt-49 scale-x-[-1] scale-y-[-1]" /></div>
