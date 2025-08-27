@@ -107,7 +107,11 @@ export default function ProductionServices() {
       id="production"
       className="min-h-screen flex flex-col items-center justify-center  text-white py-16"
     >
-      <h2 className="text-3xl font-semibold mb-12">Виробничі послуги</h2>
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-1000] ml-[-1300]  " />
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
+
+
+      <h2 className="text-3xl font-semibold mb-12 ml-[-900]">Виробничі послуги</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
         {products.map((product, index) => (

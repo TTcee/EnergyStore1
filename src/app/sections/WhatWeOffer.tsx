@@ -18,7 +18,12 @@ const ServiceCard = ({
   return (
     <div className=" w-[528px] h-[350px] left-[211px] top-[1870px] 
              bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
-             backdrop-blur-[9px] rounded-[6px] box-border pl-10 pt-15 pr-10">
+             backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10" style={{
+    border: "2px solid transparent",
+    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
+    borderRadius: "20px"
+
+  }}>
       {/* Назва послуги */}
       <h3 className="text-2xl font-bold mb-4">{title}</h3>
 

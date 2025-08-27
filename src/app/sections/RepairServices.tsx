@@ -36,11 +36,11 @@ const AccordionItem = ({
         
         {/* Стрілка */}
         <div className={`transform transition-transform duration-200 ${
-          isOpen ? 'rotate-90' : 'rotate-45'
+          isOpen ? 'rotate-225' : 'rotate-45'
         }`}>
           <div className="w-6 h-6 relative">
-            <div className="absolute top-1/2 left-1/2 w-4 h-px bg-green-400 transform -translate-x-1/2 -translate-y-1/2"></div>
-            <div className={`absolute top-1/2 left-1/2 w-px h-4 bg-green-400 transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
+            <div className="absolute top-1/2 left-1/2 w-4 h-px  transform -translate-x-1/2 -translate-y-1/2"><img src="/arrowdown.png" alt="" /></div>
+            <div className={`absolute top-1/2 left-1/2 w-px h-4  transform -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
               isOpen ? 'opacity-0' : 'opacity-100'
             }`}></div>
           </div>
@@ -126,7 +126,7 @@ export default function RepairServices() {
 
   return (
     <section className="min-h-screen text-white py-16 px-4" id='repair'>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Заголовок */}
         <h1 className="text-4xl font-bold text-center mb-16">
           Ремонтні послуги
