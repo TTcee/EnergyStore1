@@ -4,6 +4,8 @@ export default function AboutUs() {
       id="about"
       className="min-h-screen flex items-center justify-center text-white px-6 py-16"
     >
+            <img src="/shademain2.png" alt="Моє зображення" className="absolute w-250 z-[-9] mt-[-100] ml-[-900]" />
+
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Ліва колонка (картинка + точки) */}
         <div className="relative order-1 lg:order-none w-full flex justify-center lg:justify-start">
