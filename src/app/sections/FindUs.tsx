@@ -25,7 +25,7 @@ export default function FindUs() {
             </p>
             <p className="flex">
               <Mail className="w-8 h-8 text-yellow-400 mr-4" />
-              <span className="font-semibold">Email:</span> energystore1@gmail.com
+              <span className="font-semibold">Email:</span>eneergystore@gmail.com
             </p>
           </div>
 
@@ -50,7 +50,7 @@ export default function FindUs() {
           xl:w-[100%] xl:h-[410px]"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d321.6899250322548!2d23.966321125358533!3d49.83269743378899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae760b1341f13%3A0x35cf4e329cec890!2z0LLRg9C70LjRhtGPINCT0L7RgNC-0LTQvtGG0YzQutCwLCAxNzQsINCb0YzQstGW0LIsINCb0YzQstGW0LLRgdGM0LrQsCDQvtCx0LvQsNGB0YLRjCwgNzkwMDA!5e0!3m2!1suk!2sua!4v1756232096217!5m2!1suk!2sua"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.5575927768773!2d23.9686505!3d49.8319797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae74070ed9ee3%3A0x965ed1e1bb37a3c9!2sEnergy%20Store!5e0!3m2!1suk!2sua!4v1756306870511!5m2!1suk!2sua"
             className="w-full h-full rounded-lg shadow-lg"
             style={{ border: 0 }}
             loading="lazy"
@@ -60,3 +60,5 @@ export default function FindUs() {
     </section>
   );
 }
+
+
