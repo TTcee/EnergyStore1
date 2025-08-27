@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import ContactModal from '@/app/components/ContactModal'; // Імпортуйте відповідно до вашої структури файлів
+import { useContactModal } from '@/app/hooks/useContactModal'; // Імпортуйте відповідно до вашої структури файлів
 
 // Типи для послуг
 interface RepairService {
@@ -17,11 +19,13 @@ interface RepairService {
 const AccordionItem = ({ 
   service, 
   isOpen, 
-  onToggle 
+  onToggle,
+  onConsultationClick
 }: {
   service: RepairService;
   isOpen: boolean;
   onToggle: () => void;
+  onConsultationClick: () => void;
 }) => {
   return (
     <div className="border-b border-gray-600">
@@ -69,17 +73,18 @@ const AccordionItem = ({
           </div>
 
           {/* Кнопка консультації */}
-          {service.consultationText && service.consultationHref && (
+          {service.consultationText && (
             <div className="flex justify-end">
-              <Link href={service.consultationHref}>
-                <div className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors cursor-pointer group">
-                  <span className="mr-4 font-medium">{service.consultationText}</span>
-                  <div className="flex items-center">
-                    <div className="w-12 h-px bg-green-400 group-hover:bg-green-300 transition-colors"></div>
-                    <div className="ml-2 w-0 h-0 border-l-[6px] border-l-green-400 group-hover:border-l-green-300 border-y-[4px] border-y-transparent transition-colors"></div>
-                  </div>
+              <button
+                onClick={onConsultationClick}
+                className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors cursor-pointer group"
+              >
+                <span className="mr-4 font-medium">{service.consultationText}</span>
+                <div className="flex items-center">
+                  <div className="w-12 h-px bg-green-400 group-hover:bg-green-300 transition-colors"></div>
+                  <div className="ml-2 w-0 h-0 border-l-[6px] border-l-green-400 group-hover:border-l-green-300 border-y-[4px] border-y-transparent transition-colors"></div>
                 </div>
-              </Link>
+              </button>
             </div>
           )}
         </div>
@@ -90,6 +95,7 @@ const AccordionItem = ({
 
 export default function RepairServices() {
   const [openItems, setOpenItems] = useState<string[]>([]);
+  const { isOpen, openModal, closeModal } = useContactModal();
 
   const services: RepairService[] = [
     {
@@ -100,8 +106,7 @@ export default function RepairServices() {
         'Діагностика завжди входить у вартість ремонту, якщо ви вирішете його робити у нас. Якщо ж після діагностики ви відмовляєтеся від ремонту — її вартість складає 550 грн.',
         'Роботи починаються тільки після узгодження ціни з клієнтом, тому ви завжди контролюєте витрати та результат.'
       ],
-      consultationText: 'Замовити консультацію',
-      consultationHref: '/consultation'
+      consultationText: 'Замовити консультацію'
     },
     {
       id: 'repack-repair',
@@ -111,8 +116,7 @@ export default function RepairServices() {
         'Ми виконуємо повну перепаковку — замінимо старі елементи на нові у рідному корпусі. Таким чином ви отримаєте повністю відновлений акумулятор, який працює навіть краще за оригінальний, але за значно нижчу ціну, ніж купівля нового інструмента чи батареї.',
         'Роботи починаються тільки після узгодження ціни з клієнтом, тому ви завжди контролюєте витрати та результат.'
       ],
-      consultationText: 'Замовити консультацію',
-      consultationHref: '/consultation'
+      consultationText: 'Замовити консультацію'
     }
   ];
 
@@ -125,25 +129,31 @@ export default function RepairServices() {
   };
 
   return (
-    <section className="min-h-screen text-white py-16 px-4" id='repair'>
-      <div className="max-w-4xl mx-auto">
-        {/* Заголовок */}
-        <h1 className="text-4xl font-bold text-center mb-16">
-          Ремонтні послуги
-        </h1>
+    <>
+      <section className="min-h-screen text-white py-16 px-4" id='repair'>
+        <div className="max-w-4xl mx-auto">
+          {/* Заголовок */}
+          <h1 className="text-4xl font-bold text-center mb-16">
+            Ремонтні послуги
+          </h1>
 
-        {/* Accordion */}
-        <div className="space-y-4">
-          {services.map((service) => (
-            <AccordionItem
-              key={service.id}
-              service={service}
-              isOpen={openItems.includes(service.id)}
-              onToggle={() => toggleItem(service.id)}
-            />
-          ))}
+          {/* Accordion */}
+          <div className="space-y-4">
+            {services.map((service) => (
+              <AccordionItem
+                key={service.id}
+                service={service}
+                isOpen={openItems.includes(service.id)}
+                onToggle={() => toggleItem(service.id)}
+                onConsultationClick={openModal}
+              />
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      {/* Модальне вікно */}
+      <ContactModal isOpen={isOpen} onClose={closeModal} />
+    </>
   );
 }
