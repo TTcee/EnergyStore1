@@ -61,11 +61,11 @@ export default function WhyChooseUs() {
         </div>
 
         {/* Права частина — квадрат з точок */}
-        <div className="relative hidden md:flex justify-center items-center">
+        <div className="relative hidden lg:flex justify-center items-center">
           <img
             src="/dotsForWHYUSPage.png" // заміни на свою картинку
             alt="Про нашу компанію"
-            className=" mt-10 "
+            className=" mt-10" 
           />
         </div>
       </div>
