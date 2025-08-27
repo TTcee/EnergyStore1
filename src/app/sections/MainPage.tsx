@@ -14,10 +14,17 @@ export default function MainPage() {
           Від ремонту до виробництва — надійна енергія у кожному рішенні.
         </p>
         <div className="flex flex-col sm:flex-row  gap-4">
-          <button className="w-70 h-[57.54px]  bg-[linear-gradient(89.61deg,#002A96_-54.17%,#A06BEB_166.48%)] shadow-[0px_4px_12px_rgba(0,0,0,0.45),_-4px_-3px_11px_rgba(93,55,245,0.42)]
- bg-purple-600 text-white rounded-lg">
-            Отримати консультацію
-          </button>
+          <button
+  className="w-70 h-[57.54px] 
+  bg-[linear-gradient(89.61deg,#002A96_-54.17%,#A06BEB_166.48%)] 
+  shadow-[0px_4px_12px_rgba(0,0,0,0.45),_-4px_-3px_11px_rgba(93,55,245,0.42)]
+  text-white rounded-lg
+  transition duration-300 ease-in-out
+  hover:shadow-[0px_0px_25px_rgba(160,107,235,0.9),0px_0px_45px_rgba(0,42,150,0.7)] hover:scale-105
+"
+>
+  Отримати консультацію
+</button>
           <button className="w-70 border border-gray-400 hover:border-white transition-colors text-white px-6 py-3 rounded-lg font-semibold">
             Список товарів
           </button>
