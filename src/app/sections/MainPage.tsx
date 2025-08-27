@@ -6,11 +6,10 @@ export default function MainPage() {
       <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-45 " />
         <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-32">
        <div>
-         <h1
-        className="text-2xl font-rubik-mono sm:text-6xl font-extrabold mb-6 mt-30">
-        ВИРОБНИЦТВО <br /> СУЧАСНИХ АКУМУЛЯТОРІВ
+         <h1 className="font-rubik-mono text-4xl text-4xl sm:text-6xl font-extrabold mb-6 mt-30">
+          ВИРОБНИЦТВО <br /> СУЧАСНИХ АКУМУЛЯТОРІВ
         </h1>
-        <p className="font-montserrat text-lg  sm:text-xl mb-10 text-gray-300">
+        <p className="font-montserrat-alt text-lg  sm:text-xl mb-10 text-gray-300">
           Ми дбаємо про те, щоб ваша техніка ніколи не залишалася без живлення.
           Від ремонту до виробництва — надійна енергія у кожному рішенні.
         </p>
