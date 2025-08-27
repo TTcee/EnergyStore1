@@ -128,7 +128,8 @@ export default function RepairServices() {
     );
   };
 
-  return (
+  return (  
+    <>
     <section className="min-h-screen text-white py-16 px-4" id='repair'>
       <div className="max-w-6xl mx-auto">
         {/* Заголовок */}
