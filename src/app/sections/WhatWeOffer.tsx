@@ -16,7 +16,9 @@ const ServiceCard = ({
   href 
 }: ServiceCardProps) => {
   return (
-    <div className="bg-gray-800 border border-gray-700 rounded-lg p-8 text-white hover:bg-gray-750 transition-colors group">
+    <div className=" w-[528px] h-[350px] left-[211px] top-[1870px] 
+             bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
+             backdrop-blur-[9px] rounded-[6px] box-border pl-10 pt-20 pr-10">
       {/* Назва послуги */}
       <h3 className="text-2xl font-bold mb-4">{title}</h3>
 
@@ -59,29 +61,17 @@ export default function WhatWeOffer() {
       className="min-h-screen flex flex-col items-center justify-center  text-white py-16 px-4 relative overflow-hidden"
     >
       {/* Декоративні точки */}
-      <div className="absolute inset-0 opacity-20">
-        {/* Ліва сторона */}
-        <div className="absolute left-8 top-1/4 grid grid-cols-8 gap-2">
-          {Array.from({ length: 64 }).map((_, i) => (
-            <div key={`left-${i}`} className="w-1 h-1 bg-gray-600 rounded-full"></div>
-          ))}
-        </div>
-        
-        {/* Права сторона */}
-        <div className="absolute right-8 bottom-1/4 grid grid-cols-8 gap-2">
-          {Array.from({ length: 64 }).map((_, i) => (
-            <div key={`right-${i}`} className="w-1 h-1 bg-gray-600 rounded-full"></div>
-          ))}
-        </div>
-      </div>
+      <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-[-630] mt-17" /></div>
+            <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-20 mt-49 scale-x-[-1] scale-y-[-1]" /></div>
+
 
       {/* Заголовок */}
-      <h2 className="text-4xl font-bold mb-16 text-center relative z-10">
+      <h2 className="text-4xl font-bold mb-20 relative z-10 ml-[-900]">
         Що ми пропонуємо
       </h2>
 
       {/* Картки послуг */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl w-full relative z-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl w-full relative z-10 ">
         {services.map((service, index) => (
           <ServiceCard
             key={index}

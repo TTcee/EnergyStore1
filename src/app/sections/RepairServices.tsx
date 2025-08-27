@@ -125,7 +125,7 @@ export default function RepairServices() {
   };
 
   return (
-    <section className="min-h-screen text-white py-16 px-4">
+    <section className="min-h-screen text-white py-16 px-4" id='repair'>
       <div className="max-w-4xl mx-auto">
         {/* Заголовок */}
         <h1 className="text-4xl font-bold text-center mb-16">
