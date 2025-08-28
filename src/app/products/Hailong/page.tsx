@@ -114,7 +114,7 @@ const Product1Page = () => {
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="w-full bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
-            backdrop-blur-[38.5px] rounded-[20px] border border-gray-600 rounded-lg px-4 py-3 text-white appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-600 rounded-lg px-4 py-3 text-gray appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
         >
           <option value="" disabled>
             {placeholder}
