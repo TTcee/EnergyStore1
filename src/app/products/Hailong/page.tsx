@@ -101,13 +101,14 @@ const Product1Page = () => {
     onChange: (value: string) => void;
     placeholder: string;
   }) => (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <label className="text-white text-sm mb-2 font-medium">{label}</label>
       <div className="relative">
         <select
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
+          className="w-full bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-600 rounded-lg px-4 py-3 text-white appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
         >
           <option value="" disabled>
             {placeholder}
@@ -128,30 +129,33 @@ const Product1Page = () => {
   );
 
   return (
-    <div className="min-h-screen py-16 px-4">
+    
+    <div className=" py-16 px-4">
+           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]"/>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="flex justify-center lg:justify-start">
-            <div className="bg-gray-800 border border-gray-700 rounded-2xl p-8 max-w-md w-full">
-              <div className="aspect-square flex items-center justify-center">
-                <div className="w-80 h-64 bg-gray-700 rounded-lg flex items-center justify-center">
+            <div className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 h-130 w-full">
+              <div className="aspect-square ">
                   <div className="text-center">
-                    <div className="w-32 h-24 bg-gray-600 rounded-lg mx-auto mb-4"></div>
-                    <p className="text-gray-400 text-sm">Hailong Battery Image</p>
+                    <div className="  mb-4"><img src="/hailong.png" alt="" className="mt-17"/></div>
                   </div>
-                </div>
               </div>
             </div>
           </div>
 
           <div className="space-y-8">
             <div>
-              <h1 className="text-4xl font-bold text-white mb-6">Hailong</h1>
+              <h1 className="text-5xl font-bold text-white mb-6">Hailong</h1>
               <div className="space-y-4 text-gray-300">
-                <p className="text-lg leading-relaxed">
+                <p className="text-[13px] leading-relaxed">
                   Акумулятор у корпусі Hailong — зручне й надійне рішення для ваших 
                   електровелосипедів. Він кріпиться до рами, легко знімається має захист 
                   від вологи та ударів, замок і індикатор заряду.
+                  Зібраний на літієвих елементах 21700, забезпечує високу ємність, 
+                  стабільну роботу й довгий термін служби. Формат підходить до
+                  більшості рам і поєднує практичність із сучасним дизайном.
                 </p>
               </div>
             </div>
@@ -194,10 +198,14 @@ const Product1Page = () => {
                 <p className="text-gray-400 text-sm mt-1">{currentHailong}</p>
               )}
 
-              <div className="flex items-center justify-between pt-6">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg">
-                  Зв'язатись з нами
-                </button>
+              <div className="flex items-center justify-between pt-6 mt-38">
+                <button className="bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
+             rounded-[10px] hover:bg-blue-700 text-white font-semibold px-8 py-4
+             text-[13px] leading-[19px] tracking-[0.02em] w-xs border border-white/20
+             transition-transform duration-300 ease-in-out transform hover:scale-110">
+  Зв'язатись з нами
+</button>
+
                 
                 <div className="text-right">
                   <div className="text-3xl font-bold text-green-400">
