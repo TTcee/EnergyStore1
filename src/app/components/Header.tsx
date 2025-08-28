@@ -45,7 +45,7 @@ const Header = () => {
         {/* Desktop меню */}
         <ul className="hidden md:flex items-center space-x-20 list-none ml-20">
           {navItems.map((item) => (
-            <li key={item.href} className="relative group">
+            <li key={item.href} className="relative group font-[14px]">
               <a
                 href={item.href}
                 className={`relative after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
@@ -70,7 +70,7 @@ const Header = () => {
 
       {/* Mobile меню */}
       {menuOpen && (
-        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-black/90 text-white font-montserratAlt">
+        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-black/90 text-white  font-montserratAlt">
           {navItems.map((item) => (
             <li key={item.href} className="relative group">
               <a

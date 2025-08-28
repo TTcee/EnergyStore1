@@ -81,8 +81,8 @@ const AccordionItem = ({
               >
                 <span className="mr-4 font-medium">{service.consultationText}</span>
                 <div className="flex items-center">
-                  <div className="w-12 h-px bg-green-400 group-hover:bg-green-300 transition-colors"></div>
-                  <div className="ml-2 w-0 h-0 border-l-[6px] border-l-green-400 group-hover:border-l-green-300 border-y-[4px] border-y-transparent transition-colors"></div>
+                <div className="w-25"><img src="/arrowleft.png" alt="" /></div>
+
                 </div>
               </button>
             </div>
@@ -134,7 +134,7 @@ export default function RepairServices() {
       <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-20 mt-[-100]" />
       <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-250] ml-150" />
 
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-300 mx-auto">
         {/* Заголовок */}
         <h1 className="text-4xl font-bold text-center mb-16">
           Ремонтні послуги

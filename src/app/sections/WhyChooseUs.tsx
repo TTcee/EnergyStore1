@@ -33,7 +33,7 @@ export default function WhyChooseUs() {
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-300 " />
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-200 z-[-9] ml-[-800] mt-150" />
 
-      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="max-w-300 w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Ліва частина */}
         <div className="space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
