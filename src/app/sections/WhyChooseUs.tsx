@@ -3,22 +3,22 @@ import { Clock, Award, Settings, Shield } from "lucide-react";
 export default function WhyChooseUs() {
   const cards = [
     {
-      icon: <Clock className="w-8 h-8 text-yellow-400 mr-4" />,
+      icon: <Clock className="w-32 h-32 text-white-200 mr-4 pb-12" />,
       title: "Досвід понад 13 років",
       text: "Маємо понад 13 років досвіду у виробництві та ремонті акумуляторів, тому гарантуємо якість і надійність у кожному рішенні.",
     },
     {
-      icon: <Award className="w-8 h-8 text-yellow-400 mr-4" />,
+      icon: <Award className="w-32 h-32 text-white-200 mr-4 pb-12" />,
       title: "Надійність та довговічність",
       text: "Застосовуємо перевірені літієві елементи та сучасне складання, щоб батареї працювали стабільно й витримували складні умови.",
     },
     {
-      icon: <Settings className="w-8 h-8 text-yellow-400 mr-4" />,
+      icon: <Settings className="w-32 h-32 text-white-400 mr-4 pb-12" />,
       title: "Індивідуальні рішення",
       text: "Розробляємо акумулятори з потрібною ємністю та системою управління живленням під конкретні задачі клієнта.",
     },
     {
-      icon: <Shield className="w-8 h-8 text-yellow-400 mr-4" />,
+      icon: <Shield className="w-32 h-32 text-white-400 mr-4 pb-12" />,
       title: "Безпека понад усе",
       text: "Наші батареї мають захист від перегріву та перевантаження, що гарантує максимальну безпеку під час використання.",
     },
@@ -29,15 +29,19 @@ export default function WhyChooseUs() {
       id="whyus"
       className="min-h-screen flex items-center justify-center text-white px-6 py-16"
     >
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-250 z-[-9] ml-[-900] mt-[-600]" />
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-300 " />
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-200 z-[-9] ml-[-800] mt-150" />
+
       <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Ліва частина */}
-        <div className="space-y-8">
+        <div className="space-y-4">
           <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
             Чому обирають нас
           </h2>
 
           {/* Карточки */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {cards.map((card, index) => (
               <div
                 key={index}
@@ -48,7 +52,7 @@ export default function WhyChooseUs() {
                            rounded-[10px]
                            box-border
                            border border-white
-                           border-[0px]"
+                           border-[0px] h-30"
               >
                 {card.icon}
                 <div>
