@@ -10,21 +10,21 @@ export default function FindUs() {
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-300 " />
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-200 z-[-9] ml-[-200] mt-70" />
 
-      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-2 lg:gap-12">
         {/* Ліва частина */}
         <div className="space-y-6">
           <h2 className="text-2xl sm:text-3xl text-white lg:text-4xl font-extrabold">
             Де нас знайти
           </h2>
-          <hr className="border-white border-[1.5px] w-3.5/4 sm:w-2.5/3 md:w-1.3/2" />
+          <hr className="border-white border-[1.5px] w-md sm:md md:md" />
 
           <div className="space-y-5 text-base text-white sm:text-lg">
             <p className="flex">
-              <House className="w-8 h-8 text-white-400 mr-4" />
+              <House className="w-8 h-8 text-white-100 mr-4" />
               <span className="font-normal font-montserrat font-xs"></span> вул. Городоцька, 174, Львів
             </p>
             <p className="flex">
-              <Phone className="w-8 h-8 text-white-400 mr-4" />
+              <Phone className="w-8 h-8 text-white-100 mr-4 text-sm sm:text-sm" />
               <span className="font-normal font-montserrat"></span> +38 (098) 174-14-88
             </p>
             <p className="flex">
@@ -33,7 +33,7 @@ export default function FindUs() {
             </p>
           </div>
 
-          <hr className="border-white border-[1.5px] w-3.5/4 sm:w-2.5/3 md:w-1.2/2" />
+          <hr className="border-white border-[1.5px] w-md sm:w-md md:w-md" />
 
           <div className="text-white">
             <h3 className="text-lg sm:text-xl font-semibold mb-2">
@@ -46,7 +46,7 @@ export default function FindUs() {
 
         {/* Права частина (карта) */}
         <div
-          className="mx-auto 
+          className="ml-[-100] 
           w-full h-64      
           sm:w-[90%] sm:h-80 
           md:w-[100%] md:h-[250px] 
@@ -55,7 +55,7 @@ export default function FindUs() {
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.5575927768773!2d23.9686505!3d49.8319797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae74070ed9ee3%3A0x965ed1e1bb37a3c9!2sEnergy%20Store!5e0!3m2!1suk!2sua!4v1756306870511!5m2!1suk!2sua"
-            className="w-full h-full rounded-lg shadow-lg"
+            className="w-2xl h-full rounded-lg shadow-lg"
             style={{ border: 0 }}
             loading="lazy"
           ></iframe>

@@ -21,28 +21,31 @@ const ProductCard = ({
 }: ProductCardProps) => {
   return (
     <div className="bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
-             backdrop-blur-[9px] rounded-[6px] box-border rounded-lg p-6 text-white max-w-sm">
-      {/* Зображення товару */}
-      <div className="mb-6 flex justify-center">
-        <div className=" flex items-center justify-center">
-          {image ? (
-            <img src={image} alt={title} className="w-full h-full object-contain rounded-lg" />
-          ) : (
-            <div className="w-20 h-16 bg-gray-600 rounded"></div>
-          )}
-        </div>
+             backdrop-blur-[9px] rounded-[6px] p-6 text-white max-w-sm h-[400px] flex flex-col">
+      
+      {/* Блок для зображення */}
+      <div className="flex justify-center items-center h-[180px] mb-4">
+        {image ? (
+          <img 
+            src={image} 
+            alt={title} 
+            className="h-full object-contain"
+          />
+        ) : (
+          <div className="w-32 h-24 bg-gray-600 rounded"></div>
+        )}
       </div>
 
-      {/* Назва товару */}
-      <h3 className="text-xl font-bold mb-3">{title}</h3>
+      {/* Назва + опис */}
+      <div className="flex-grow flex flex-col">
+        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-3">
+          {description}
+        </p>
+      </div>
 
-      {/* Опис */}
-      <p className="text-gray-300 text-sm mb-6 leading-relaxed">
-        {description}
-      </p>
-
-      {/* Нижня частина з кнопкою та ціною */}
-      <div className="flex items-center justify-between">
+      {/* Кнопки й ціна завжди внизу */}
+      <div className="flex items-center justify-between mt-auto">
         <Link href={href}>
           <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
             {buttonText}
@@ -55,6 +58,8 @@ const ProductCard = ({
     </div>
   );
 };
+
+
 
 export default function ProductionServices() {
   const products = [
@@ -111,7 +116,7 @@ export default function ProductionServices() {
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
 
 
-      <h2 className="text-3xl font-semibold mb-12 ml-[-900]">Виробничі послуги</h2>
+      <h2 className="text-3xl font-semibold mb-12 ml-[-880]">Виробничі послуги</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
         {products.map((product, index) => (

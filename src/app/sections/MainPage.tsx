@@ -12,7 +12,7 @@ export default function MainPage() {
       <section id="hero" className="min-h-screen flex  text-white">
         <img src="/shademain.png" alt="Моє зображення" className="absolute w-200 z-[-10] mt-[-100]" />
         <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-45 " />
-          <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-32">
+          <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-41">
          <div>
            <h1 className="font-['Rubik_Mono_One'] font-normal  leading-16
                bg-[linear-gradient(90.01deg,#F6F6F6_0.01%,#909090_206.48%)] 
