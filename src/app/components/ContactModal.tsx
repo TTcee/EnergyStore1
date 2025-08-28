@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Phone, MessageCircle } from 'lucide-react';
+import { X, Phone, MessageCircle, Loader2 } from 'lucide-react';
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -9,7 +9,7 @@ interface ContactModalProps {
 }
 
 const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
-  const [step, setStep] = useState<'choose' | 'callback' | 'messengers' | 'success'>('choose');
+  const [step, setStep] = useState<'choose' | 'callback' | 'messengers' | 'success' | 'error'>('choose');
   const [formData, setFormData] = useState({
     name: '',
     phone: ''
@@ -18,6 +18,8 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     name: '',
     phone: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [apiError, setApiError] = useState('');
 
   const validateForm = () => {
     const newErrors = { name: '', phone: '' };
@@ -48,17 +50,49 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     return isValid;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      // Тут буде логіка відправки даних
-      console.log('Дані для відправки:', formData);
-      setStep('success');
-      
-      // Автоматично закрити модалку через 3 секунди
-      setTimeout(() => {
-        handleClose();
-      }, 3000);
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setApiError('');
+
+    try {
+      const response = await fetch('/api/sendMessage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          phone: formData.phone.trim()
+        }),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('Дані успішно відправлено:', result);
+        setStep('success');
+        
+        // Автоматично закрити модалку через 3 секунди
+        setTimeout(() => {
+          handleClose();
+        }, 3000);
+      } else {
+        console.error('Помилка відправки:', result.error);
+        setApiError(result.error || 'Сталася помилка при відправці даних');
+        setStep('error');
+      }
+    } catch (error) {
+      console.error('Помилка мережі:', error);
+      setApiError('Помилка з\'єднання. Перевірте інтернет-з\'єднання.');
+      setStep('error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -66,6 +100,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     setStep('choose');
     setFormData({ name: '', phone: '' });
     setErrors({ name: '', phone: '' });
+    setApiError('');
     onClose();
   };
 
@@ -77,11 +112,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleTelegramClick = () => {
-    window.open('https://t.me/your_manager_username', '_blank');
+    // Замініть на ваш реальний Telegram username
+    window.open('https://t.me/energy_storee', '_blank');
   };
 
   const handleViberClick = () => {
-    window.open('viber://chat?number=+380XXXXXXXXX', '_blank');
+    // Замініть на ваш реальний Viber номер
+    window.open('viber://chat?number=+380981741488', '_blank');
+  };
+
+  const handleRetry = () => {
+    setStep('callback');
+    setApiError('');
   };
 
   if (!isOpen) return null;
@@ -96,6 +138,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         <button
           onClick={handleClose}
           className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          disabled={isSubmitting}
         >
           <X size={24} />
         </button>
@@ -137,6 +180,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
               <button
                 onClick={() => setStep('choose')}
                 className="text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-2"
+                disabled={isSubmitting}
               >
                 ← Назад
               </button>
@@ -161,6 +205,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Введіть ваше ім'я"
+                    disabled={isSubmitting}
                   />
                   {errors.name && (
                     <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -179,6 +224,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="+380XX XXX XX XX"
+                    disabled={isSubmitting}
                   />
                   {errors.phone && (
                     <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
@@ -187,9 +233,17 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Замовити дзвінок
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="animate-spin" size={20} />
+                      Відправляємо...
+                    </>
+                  ) : (
+                    'Замовити дзвінок'
+                  )}
                 </button>
               </form>
             </div>
@@ -249,6 +303,29 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 Очікуйте зворотнього зв'язку.<br />
                 Ми зв'яжемося з вами найближчим часом.
               </p>
+            </div>
+          )}
+
+          {/* Крок помилки */}
+          {step === 'error' && (
+            <div className="text-center py-8">
+              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Упс! Щось пішло не так
+              </h2>
+              <p className="text-gray-600 mb-4">
+                {apiError || 'Не вдалося відправити дані. Спробуйте ще раз.'}
+              </p>
+              <button
+                onClick={handleRetry}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-xl transition-colors"
+              >
+                Спробувати ще раз
+              </button>
             </div>
           )}
         </div>
