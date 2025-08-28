@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import HailongProductModal from "@/app/components/HailongProductModal"; // Імпортуйте компоненту
+import ContactModal from "@/app/components/ContactModal"; // Імпортуйте існуючу компоненту
 
 interface Option {
   id: string;
@@ -40,6 +42,10 @@ const Product1Page = () => {
   const [selectedVoltage, setSelectedVoltage] = useState<string>("");
   const [selectedCapacity, setSelectedCapacity] = useState<string>("");
   const [currentPrice, setCurrentPrice] = useState<number>(1200);
+  
+  // Стани для модальних вікон
+  const [isProductModalOpen, setIsProductModalOpen] = useState<boolean>(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState<boolean>(false);
 
   const models: Option[] = [
     { id: "lion", label: "Lion", value: "Lion" },
@@ -71,22 +77,22 @@ const Product1Page = () => {
           c.model === selectedModel &&
           c.voltage === selectedVoltage &&
           c.capacity === selectedCapacity
-      )?.hailong
+      )?.hailong || ""
     : "";
 
-  // Приклад обчислення ціни (можна замінити на реальні)
-      useEffect(() => {
-  if (selectedModel && selectedVoltage && selectedCapacity) {
-    const config = configurations.find(
-      c => c.model === selectedModel &&
-           c.voltage === selectedVoltage &&
-           c.capacity === selectedCapacity
-    );
-    if (config) {
-      setCurrentPrice(config.price);
+  // Обчислення ціни
+  useEffect(() => {
+    if (selectedModel && selectedVoltage && selectedCapacity) {
+      const config = configurations.find(
+        c => c.model === selectedModel &&
+             c.voltage === selectedVoltage &&
+             c.capacity === selectedCapacity
+      );
+      if (config) {
+        setCurrentPrice(config.price);
+      }
     }
-  }
-}, [selectedModel, selectedVoltage, selectedCapacity]);
+  }, [selectedModel, selectedVoltage, selectedCapacity]);
 
   const SelectDropdown = ({
     label,
@@ -132,6 +138,7 @@ const Product1Page = () => {
     
     <div className=" py-16 px-4">
            <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]"/>
+
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="flex justify-center lg:justify-start">
@@ -202,9 +209,10 @@ const Product1Page = () => {
                 <button className="bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
              rounded-[10px] hover:bg-blue-700 text-white font-semibold px-8 py-4
              text-[13px] leading-[19px] tracking-[0.02em] w-xs border border-white/20
-             transition-transform duration-300 ease-in-out transform hover:scale-110">
+             transition-transform duration-300 ease-in-out transform hover:scale-110" onClick={() => setIsProductModalOpen(true)}>
   Зв'язатись з нами
 </button>
+
 
                 
                 <div className="text-right">
@@ -217,6 +225,24 @@ const Product1Page = () => {
           </div>
         </div>
       </div>
+
+      {/* Модальне вікно для продукту */}
+      <HailongProductModal
+        isOpen={isProductModalOpen}
+        onClose={() => setIsProductModalOpen(false)}
+        selectedModel={selectedModel}
+        selectedVoltage={selectedVoltage}
+        selectedCapacity={selectedCapacity}
+        currentHailong={currentHailong}
+        currentPrice={currentPrice}
+        onOpenConsultation={() => setIsContactModalOpen(true)}
+      />
+
+      {/* Модальне вікно для консультації */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </div>
   );
 };
