@@ -130,7 +130,10 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
   const isProductSelected = selectedModel && selectedVoltage && selectedCapacity;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 
+    bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
+    backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10
+    flex items-center justify-center z-50 p-4">
       <div className="bg-white rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
         {/* Кнопка закриття */}
         <button
