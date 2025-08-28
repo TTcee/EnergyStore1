@@ -23,20 +23,24 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     const newErrors = { name: '', phone: '' };
     let isValid = true;
 
+    // Валідація імені: мінімум 2 символи, тільки літери, дефіси та апострофи
+    const nameRegex = /^[a-zA-Zа-яА-ЯіІїЇєЄ'\-\s]{2,50}$/;
     if (!formData.name.trim()) {
       newErrors.name = 'Введіть ваше ім\'я';
       isValid = false;
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Ім\'я має містити мінімум 2 символи';
+    } else if (!nameRegex.test(formData.name.trim())) {
+      newErrors.name = 'Ім\'я має містити тільки літери (2-50 символів)';
       isValid = false;
     }
 
-    const phoneRegex = /^(\+380|380|0)[0-9]{9}$/;
+    // Валідація телефону: український формат
+    const phoneRegex = /^(\+?38)?[0-9]{10}$/;
+    const cleanPhone = formData.phone.replace(/[\s\-\(\)]/g, '');
     if (!formData.phone.trim()) {
       newErrors.phone = 'Введіть номер телефону';
       isValid = false;
-    } else if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
-      newErrors.phone = 'Введіть коректний номер телефону';
+    } else if (!phoneRegex.test(cleanPhone)) {
+      newErrors.phone = 'Введіть коректний український номер';
       isValid = false;
     }
 
@@ -73,18 +77,21 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
   };
 
   const handleTelegramClick = () => {
-    window.open('https://t.me/energy_storee', '_blank');
+    window.open('https://t.me/your_manager_username', '_blank');
   };
 
   const handleViberClick = () => {
-    window.open('viber://chat?number=+380981741488', '_blank');
+    window.open('viber://chat?number=+380XXXXXXXXX', '_blank');
   };
 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200">
+    <div className="fixed inset-0 
+    bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
+    backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10
+    flex items-center justify-center z-50 p-4">
+      <div className="bg-white rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
         {/* Кнопка закриття */}
         <button
           onClick={handleClose}
@@ -93,14 +100,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           <X size={24} />
         </button>
 
-        <div className="p-6">
+        <div className="p-4 sm:p-6">
           {/* Крок вибору способу комунікації */}
           {step === 'choose' && (
             <div className="text-center">
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
                 Зв'яжіться з нами
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
                 Оберіть зручний для вас спосіб комунікації
               </p>
               
@@ -134,11 +141,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 ← Назад
               </button>
               
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
                 Зворотний дзвінок
               </h2>
-              <p className="text-gray-600 mb-6">
-                Залfollow ваші контактні дані, і ми зв'яжемося з вами
+              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+                Залиште ваші контактні дані, і ми зв'яжемося з вами
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -150,7 +157,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Введіть ваше ім'я"
@@ -168,7 +175,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="+380XX XXX XX XX"
@@ -198,10 +205,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 ← Назад
               </button>
               
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
                 Оберіть месенджер
               </h2>
-              <p className="text-gray-600 mb-8">
+              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
                 Напишіть нашому менеджеру у зручному для вас месенджері
               </p>
 
@@ -218,11 +225,9 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 
                 <button
                   onClick={handleViberClick}
-                  className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3"
+                  className="w-full pl-5 bg-purple-600 hover:bg-purple-700 text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M11.398.002C9.473.028 5.331.344 3.014 2.467 1.294 4.177.693 6.698.623 9.82c-.06 3.11-.13 8.95 5.5 10.541v2.42s-.038.97.602.582c.64-.388 2.88-2.321 2.88-2.321 0 0 .46.063.46.063 3.95.375 6.729-.4 7.061-3.487.4-3.317.181-5.685-1.421-7.19C13.331 8.161 11.058 7.976 11.398.002zM12.016 2.054c4.023-.262 6.705 1.385 7.451 5.188 1.004 4.407-.4 6.109-1.594 6.929-.381.262-.381.4-.381.4s-.346-.413-1.092-.826c-.346-.194-.329-.065-.631-.216 1.393-1.46 1.685-3.26.619-5.149-.96-1.698-2.918-2.618-4.756-2.618-.329 0-.658.043-.986.129-.164-.048-.329-.1-.494-.151-.164-.048-.328-.095-.493-.14-.164-.046-.329-.091-.494-.135-.164-.044-.328-.087-.493-.13-.164-.042-.329-.084-.493-.125-.164-.04-.328-.08-.493-.119-.164-.038-.328-.076-.493-.114-.164-.037-.329-.073-.493-.109-.164-.035-.328-.07-.493-.104-.164-.033-.328-.066-.493-.098-.164-.031-.329-.062-.493-.092-.164-.029-.328-.058-.493-.086-.164-.027-.329-.054-.493-.08-.165-.025-.329-.05-.494-.074-.164-.023-.329-.046-.493-.068-.164-.021-.329-.042-.493-.062-.164-.019-.329-.038-.493-.056-.164-.017-.329-.034-.493-.05-.164-.015-.329-.03-.493-.044-.164-.013-.329-.026-.493-.038-.164-.011-.329-.022-.493-.032-.164-.009-.329-.018-.493-.026-.164-.007-.329-.014-.493-.02-.164-.005-.329-.01-.493-.014-.164-.003-.329-.006-.493-.008-.164-.001-.329-.002-.494-.002z"/>
-                  </svg>
+                  <img className='rounded-xl' src="/viber.png" alt="" />
                   Написати в Viber
                 </button>
               </div>
