@@ -55,7 +55,7 @@ export default function FindUs() {
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.5575927768773!2d23.9686505!3d49.8319797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae74070ed9ee3%3A0x965ed1e1bb37a3c9!2sEnergy%20Store!5e0!3m2!1suk!2sua!4v1756306870511!5m2!1suk!2sua"
-            className="w-2xl h-full rounded-lg shadow-lg"
+            className="w-sm ml-32 h-full rounded-lg shadow-lg sm:w-2xl sm:ml-[-20]"
             style={{ border: 0 }}
             loading="lazy"
           ></iframe>
