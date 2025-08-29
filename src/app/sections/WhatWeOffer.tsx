@@ -16,28 +16,34 @@ const ServiceCard = ({
   href 
 }: ServiceCardProps) => {
   return (
-    <div className=" w-[528px] h-[350px] left-[211px] top-[1870px] 
+    <div className="w-full max-w-[528px] h-auto min-h-[300px] lg:h-[350px]
              bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
-             backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10 mt-8" style={{
-    border: "2px solid transparent",
-    WebkitMaskImage: "-webkit-radial-gradient(white, black)",
-    borderRadius: "20px"
-
-  }}>
+             backdrop-blur-[9px] rounded-[20px] 
+             p-6 sm:p-8 lg:pl-10 lg:pt-15 lg:pr-10 
+             mx-auto" 
+          style={{
+            border: "2px solid transparent",
+            WebkitMaskImage: "-webkit-radial-gradient(white, black)"
+          }}>
+      
       {/* Назва послуги */}
-      <h3 className="text-2xl font-bold mb-4">{title}</h3>
+      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-white">
+        {title}
+      </h3>
 
       {/* Опис */}
-      <p className="text-gray-300 text-base leading-relaxed mb-8">
+      <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
         {description}
       </p>
 
       {/* Кнопка з стрілкою */}
       <Link href={href}>
         <div className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors cursor-pointer group">
-          <span className="mr-4 font-medium">{buttonText}</span>
+          <span className="mr-3 sm:mr-4 font-medium text-sm sm:text-base">{buttonText}</span>
           <div className="flex items-center">
-            <div className="w-25"><img src="/arrowleft.png" alt="" /></div>
+            <div className="w-6 sm:w-8 lg:w-25">
+              <img src="/arrowleft.png" alt="arrow" className="w-full h-auto" />
+            </div>
           </div>
         </div>
       </Link>
@@ -62,22 +68,33 @@ export default function WhatWeOffer() {
   return (
     <section 
       id="offer" 
-      className="min-h-screen flex flex-col items-center justify-center  text-white py-16 px-4 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center text-white py-8 sm:py-16 px-4 relative overflow-hidden"
     >
-            <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
+      {/* Фонове зображення - тільки на великих екранах */}
+      <img 
+        src="/shademain2.png" 
+        alt="Background shade" 
+        className=" lg:block absolute w-150 z-[-9] mt-[-300] ml-300" 
+      />
 
-      {/* Декоративні точки */}
-      <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-[-630] mt-18" /></div>
-            <div>      <img src="/dots.png" alt="dots" className="absolute w-130 ml-20 mt-49 scale-x-[-1] scale-y-[-1]" /></div>
-
+      {/* Декоративні точки - тільки на великих екранах */}
+      <div className="hidden lg:block">
+        <img src="/dots.png" alt="dots" className="absolute w-130 ml-[-610] mt-18" />
+      </div>
+      <div className="hidden lg:block">
+        <img src="/dots.png" alt="dots" className="absolute w-130 ml-23 mt-49 scale-x-[-1] scale-y-[-1]" />
+      </div>
 
       {/* Заголовок */}
-      <h2 className="text-3xl font-semibold mb-12 ml-[-880]">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-8 sm:mb-12 
+                     text-center lg:text-left lg:self-start lg:ml-36
+                     px-4 sm:px-0">
         Що ми пропонуємо
       </h2>
 
       {/* Картки послуг */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl w-full relative z-10 ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 
+                      w-full max-w-6xl relative z-10 px-2 sm:px-0 mt-8">
         {services.map((service, index) => (
           <ServiceCard
             key={index}

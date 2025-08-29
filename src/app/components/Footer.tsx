@@ -14,11 +14,11 @@ const Footer = () => {
         {/* Середній блок: меню */}
         <ul className="flex flex-col md:flex-row md:justify-start gap-y-3 md:gap-y-0 md:gap-x-10 text-sm md:text-base font-montserratAlt text-center md:text-left space-x-10">
           <li><Link href="/">Головна</Link></li>
-          <li><Link href="/about">Про нас</Link></li>
-          <li><Link href="/production-services">Послуги</Link></li>
-          <li><Link href="/products/product1">Товари</Link></li>
-          <li><Link href="/repair">Ремонт</Link></li>
-          <li><Link href="/contact">Контакти</Link></li>
+          <li><Link href="#about">Про нас</Link></li>
+          <li><Link href="#offer">Послуги</Link></li>
+          <li><Link href="#production">Товари</Link></li>
+          <li><Link href="#repair">Ремонт</Link></li>
+          <li><Link href="#findus">Контакти</Link></li>
         </ul>
 
         {/* Правий блок: кнопка/іконка */}

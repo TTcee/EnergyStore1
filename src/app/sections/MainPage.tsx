@@ -13,7 +13,7 @@ export default function MainPage() {
         <img src="/shademain.png" alt="Моє зображення" className="absolute w-200 z-[-10] mt-[-100]" />
         <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-45 " />
           <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-41">
-         <div>
+         <div className="flex-1 pr-4 lg:pr-0">
            <h1 className="font-['Rubik_Mono_One'] font-normal  leading-16
                bg-[linear-gradient(90.01deg,#F6F6F6_0.01%,#909090_206.48%)] 
                bg-clip-text text-transparent text-4xl text-4xl sm:text-6xl font-extrabold mb-6 mt-30">
@@ -26,7 +26,7 @@ export default function MainPage() {
           <div className="flex flex-col sm:flex-row  gap-4">
             <button
               onClick={openModal}
-              className="w-70 h-[57.54px] 
+              className="w-full lg:w-70 h-[57.54px] 
               bg-[linear-gradient(89.61deg,#002A96_-54.17%,#A06BEB_166.48%)] 
               shadow-[0px_4px_12px_rgba(0,0,0,0.45),_-4px_-3px_11px_rgba(93,55,245,0.42)]
               text-white rounded-lg
@@ -38,7 +38,7 @@ export default function MainPage() {
             </button>
            <button
               className="
-                w-70 h-[57.54px]
+                w-full lg:w-70 h-[57.54px]
                 bg-transparent
                 border-2 border-white
                 text-white
@@ -54,8 +54,8 @@ export default function MainPage() {
             </button>
           </div>
           </div> 
-          <div>      
-            <img src="/HailongMain.png" alt="Моє зображення" className="sm:block hidden md:block hidden mt-[-90]" />
+          <div className="hidden lg:block">      
+            <img src="/HailongMain.png" alt="Моє зображення" className="mt-[]" />
           </div>
         </div>
       </section>
