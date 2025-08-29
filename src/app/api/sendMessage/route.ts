@@ -19,26 +19,8 @@ function formatPhoneNumber(phone: string): string {
   return cleaned;
 }
 
-// Функція для відправки повідомлення в Telegram
-async function sendToTelegram(data: FormData): Promise<{ success: boolean; error?: string }> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-
-  console.log('Environment check:', {
-    hasToken: !!token,
-    hasChatId: !!chatId,
-    tokenLength: token?.length || 0,
-    chatId: chatId // Тимчасово для дебагу - приберіть це в продакшені
-  });
-
-  if (!token || !chatId) {
-    console.error('Telegram credentials not configured');
-    return { 
-      success: false, 
-      error: 'Telegram credentials not configured' 
-    };
-  }
-
+// Функція для відправки повідомлення в конкретний чат Telegram
+async function sendToTelegramChat(data: FormData, chatId: string, token: string): Promise<{ success: boolean; error?: string }> {
   // Форматуємо повідомлення
   const formattedPhone = formatPhoneNumber(data.phone);
   const message = `🔔 <b>Новий запит на зворотний дзвінок!</b>
@@ -54,15 +36,9 @@ async function sendToTelegram(data: FormData): Promise<{ success: boolean; error
     minute: '2-digit'
   })}
 
-<a href="tel:${formattedPhone}">📞 Зателефонувати зараз</a>`;
+<a href="tel:${formattedPhone}"></a>`;
 
   const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
-  
-  console.log('Sending to Telegram:', {
-    url: telegramUrl.replace(token, 'BOT_TOKEN_HIDDEN'),
-    chatId,
-    messageLength: message.length
-  });
 
   try {
     const response = await fetch(telegramUrl, {
@@ -79,15 +55,9 @@ async function sendToTelegram(data: FormData): Promise<{ success: boolean; error
     });
 
     const result = await response.json();
-    
-    console.log('Telegram API response:', {
-      status: response.status,
-      ok: response.ok,
-      result: result
-    });
 
     if (!response.ok || !result.ok) {
-      console.error('Telegram API error:', result);
+      console.error(`Telegram API error for chat ${chatId}:`, result);
       return { 
         success: false, 
         error: result.description || 'Telegram API error' 
@@ -96,12 +66,95 @@ async function sendToTelegram(data: FormData): Promise<{ success: boolean; error
 
     return { success: true };
   } catch (error) {
-    console.error('Error sending to Telegram:', error);
+    console.error(`Error sending to Telegram chat ${chatId}:`, error);
     return { 
       success: false, 
       error: error instanceof Error ? error.message : 'Unknown error' 
     };
   }
+}
+
+// Функція для відправки повідомлення в Telegram (в особисті та групу)
+async function sendToTelegram(data: FormData): Promise<{ success: boolean; error?: string }> {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const personalChatId = process.env.TELEGRAM_CHAT_ID;
+  const groupChatId = process.env.TELEGRAM_GROUP_CHAT_ID;
+
+  console.log('Environment check:', {
+    hasToken: !!token,
+    hasPersonalChatId: !!personalChatId,
+    hasGroupChatId: !!groupChatId,
+    tokenLength: token?.length || 0,
+    personalChatId: personalChatId, // Тимчасово для дебагу - приберіть це в продакшені
+    groupChatId: groupChatId // Тимчасово для дебагу - приберіть це в продакшені
+  });
+
+  if (!token) {
+    console.error('Telegram bot token not configured');
+    return { 
+      success: false, 
+      error: 'Telegram bot token not configured' 
+    };
+  }
+
+  if (!personalChatId && !groupChatId) {
+    console.error('No Telegram chat IDs configured');
+    return { 
+      success: false, 
+      error: 'No Telegram chat IDs configured' 
+    };
+  }
+
+  const results = [];
+  let hasError = false;
+  let errorMessages = [];
+
+  // Відправляємо в особисті повідомлення (якщо налаштовано)
+  if (personalChatId) {
+    console.log('Sending to personal chat:', personalChatId);
+    const personalResult = await sendToTelegramChat(data, personalChatId, token);
+    results.push({ type: 'personal', ...personalResult });
+    
+    if (!personalResult.success) {
+      hasError = true;
+      errorMessages.push(`Personal chat: ${personalResult.error}`);
+    }
+  }
+
+  // Відправляємо в групу (якщо налаштовано)
+  if (groupChatId) {
+    console.log('Sending to group chat:', groupChatId);
+    const groupResult = await sendToTelegramChat(data, groupChatId, token);
+    results.push({ type: 'group', ...groupResult });
+    
+    if (!groupResult.success) {
+      hasError = true;
+      errorMessages.push(`Group chat: ${groupResult.error}`);
+    }
+  }
+
+  console.log('Telegram sending results:', results);
+
+  // Якщо всі відправки провалилися
+  if (hasError && results.every(r => !r.success)) {
+    return {
+      success: false,
+      error: errorMessages.join('; ')
+    };
+  }
+
+  // Якщо хоча б одна відправка успішна
+  if (results.some(r => r.success)) {
+    if (hasError) {
+      console.warn('Partial success in Telegram sending:', errorMessages);
+    }
+    return { success: true };
+  }
+
+  return {
+    success: false,
+    error: 'Unknown error in Telegram sending'
+  };
 }
 
 // POST метод для обробки запитів
