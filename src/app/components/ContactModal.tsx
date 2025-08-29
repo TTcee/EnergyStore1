@@ -133,11 +133,11 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
     backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10
     flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
+      <div className=" bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
         {/* Кнопка закриття */}
         <button
           onClick={handleClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          className="absolute right-4 top-4 text-gray-400 hover:text-white-600 transition-colors z-10"
           disabled={isSubmitting}
         >
           <X size={24} />
@@ -147,10 +147,10 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           {/* Крок вибору способу комунікації */}
           {step === 'choose' && (
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-white-800 mb-2">
                 Зв'яжіться з нами
               </h2>
-              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+              <p className="text-white-600 mb-4 sm:mb-6 text-sm sm:text-base">
                 Оберіть зручний для вас спосіб комунікації
               </p>
               
@@ -179,29 +179,29 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <div>
               <button
                 onClick={() => setStep('choose')}
-                className="text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-2"
+                className="text-white hover:text-blue-700 mb-4 flex items-center gap-2"
                 disabled={isSubmitting}
               >
                 ← Назад
               </button>
               
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold ttext-white mb-2">
                 Зворотний дзвінок
               </h2>
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+              <p className="text-white mb-6 text-sm sm:text-base">
                 Залиште ваші контактні дані, і ми зв'яжемося з вами
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Ваше ім'я *
                   </label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Введіть ваше ім'я"
@@ -213,14 +213,14 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-white mb-2">
                     Номер телефону *
                   </label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="+380XX XXX XX XX"
@@ -254,15 +254,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
             <div>
               <button
                 onClick={() => setStep('choose')}
-                className="text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-2"
+                className="text-white hover:text-blue-700 mb-4 flex items-center gap-2"
               >
                 ← Назад
               </button>
               
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">
                 Оберіть месенджер
               </h2>
-              <p className="text-gray-600 mb-6 sm:mb-8 text-sm sm:text-base">
+              <p className="text-white mb-6 sm:mb-8 text-sm sm:text-base">
                 Напишіть нашому менеджеру у зручному для вас месенджері
               </p>
 
