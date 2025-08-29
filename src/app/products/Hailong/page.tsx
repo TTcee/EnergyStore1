@@ -116,11 +116,15 @@ const Product1Page = () => {
           className="w-full bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
             backdrop-blur-[38.5px] rounded-[20px] border border-gray-600 rounded-lg px-4 py-3 text-gray appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
         >
-          <option value="" disabled>
+          <option value="" disabled hidden
+          >
             {placeholder}
           </option>
           {options.map((val) => (
-            <option key={val} value={val}>
+            <option key={val} value={val}
+             className="w-full bg-black/90 text-white rounded-xl px-4 py-3 
+             border border-blue-500  focus:border-blue-500 outline-none"
+            >
               {val}
             </option>
           ))}
@@ -137,7 +141,7 @@ const Product1Page = () => {
   return (
     
     <div className=" py-16 px-4">
-           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]"/>
+           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10] "/>
 
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -202,7 +206,7 @@ const Product1Page = () => {
               </div>
 
               {currentHailong && (
-                <p className="text-gray-400 text-sm mt-1">{currentHailong}</p>
+                <p className="absolute text-gray-400 text-sm mt-0 ">{currentHailong}</p>
               )}
 
               <div className="flex items-center justify-between pt-6 mt-38">

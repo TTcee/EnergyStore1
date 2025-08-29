@@ -21,7 +21,7 @@ const Product2Page = () => {
 
           {/* Права частина - текст */}
           <div className="text-white space-y-4">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-5xl font-bold text-white mb-6">
               Акумулятор під ваші<br/>розміри
             </h1>
             
@@ -38,7 +38,9 @@ const Product2Page = () => {
             </p>
             
             {/* Інформаційний блок */}
-            <div className="bg-green-600/20 border border-green-500/30 rounded-xl p-4 backdrop-blur-sm">
+            <div className="border border-[#15D54E] rounded-[10px] rounded-xl p-4 backdrop-blur-sm" style={{
+    background: "linear-gradient(188.75deg, #15D54E -113.09%, rgba(49,49,49,0.5) 243.84%)",
+  }}>
               <p className="text-xs leading-relaxed">
                 Вартість цього товару починається від <span className="font-semibold text-white">1200 грн</span>.<br/>
                 Точна ціна визначається індивідуально відповідно до<br/>
@@ -49,7 +51,10 @@ const Product2Page = () => {
             {/* Кнопка */}
             <button 
               onClick={openModal}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl transition-colors text-sm"
+              className="bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
+             rounded-[10px] hover:bg-blue-700 text-white font-semibold px-8 py-4
+             text-[13px] leading-[19px] tracking-[0.02em] w-full border border-white/20
+             transition-transform duration-300 ease-in-out transform hover:scale-110"
             >
               Зв'язатись з нами
             </button>

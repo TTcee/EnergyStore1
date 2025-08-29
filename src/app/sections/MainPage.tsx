@@ -16,10 +16,10 @@ export default function MainPage() {
          <div className="flex-1 pr-4 lg:pr-0">
            <h1 className="font-['Rubik_Mono_One'] font-normal  leading-16
                bg-[linear-gradient(90.01deg,#F6F6F6_0.01%,#909090_206.48%)] 
-               bg-clip-text text-transparent text-4xl text-4xl sm:text-6xl font-extrabold mb-6 mt-30">
+               bg-clip-text text-transparent text-5xl text-4xl sm:text-6xl font-extrabold mb-6 mt-30 2xl:mt-50">
             ВИРОБНИЦТВО <br /> СУЧАСНИХ АКУМУЛЯТОРІВ
           </h1>
-          <p className="  sm:text-lg mb-10 font-montserrat font-normal text-[10px] leading-[20px] text-[#EEEEEE]">
+          <p className="  sm:text-lg mb-10 font-montserrat font-normal text-[16px] leading-[20px] text-[#EEEEEE]">
             Ми дбаємо про те, щоб ваша техніка ніколи не залишалася без живлення.
             Від ремонту до виробництва — надійна енергія у кожному рішенні.
           </p>
@@ -55,7 +55,7 @@ export default function MainPage() {
           </div>
           </div> 
           <div className="hidden lg:block">      
-            <img src="/HailongMain.png" alt="Моє зображення" className="mt-[]" />
+            <img src="/HailongMain.png" alt="Моє зображення" className="xl:w-4xl" />
           </div>
         </div>
       </section>
