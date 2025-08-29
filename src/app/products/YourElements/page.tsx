@@ -10,15 +10,16 @@ const Product3Page = () => {
   return (
     <>
       <div className="min-h-screen flex items-center justify-center p-6">
-        <div className="max-w-5xl w-full grid md:grid-cols-2 gap-8 items-center">
+        <div className="mt-[-20] max-w-7xl w-full grid md:grid-cols-2 gap-8 items-center">
           {/* Ліва частина - placeholder для зображення */}
           <div className="flex justify-center">
-            <div className="w-80 h-64 bg-gray-800/30 backdrop-blur-sm rounded-2xl border border-gray-700/30"></div>
+            <div className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 h-130 w-full"></div>
           </div>
 
           {/* Права частина - текст */}
           <div className="text-white space-y-4">
-            <h1 className="text-3xl font-bold">
+            <h1 className="text-5xl font-bold text-white mb-6">
               Акамулятор з Ваших<br/>елементів
             </h1>
             
