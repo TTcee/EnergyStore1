@@ -26,26 +26,8 @@ function formatPhoneNumber(phone: string): string {
   return cleaned;
 }
 
-// Функція для відправки повідомлення про замовлення в Telegram
-async function sendPurchaseToTelegram(data: PurchaseFormData): Promise<{ success: boolean; error?: string }> {
-  const token = process.env.TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.TELEGRAM_CHAT_ID;
-
-  console.log('Purchase Environment check:', {
-    hasToken: !!token,
-    hasChatId: !!chatId,
-    tokenLength: token?.length || 0,
-    chatId: chatId
-  });
-
-  if (!token || !chatId) {
-    console.error('Telegram credentials not configured');
-    return { 
-      success: false, 
-      error: 'Telegram credentials not configured' 
-    };
-  }
-
+// Функція для відправки замовлення в конкретний чат Telegram
+async function sendPurchaseToTelegramChat(data: PurchaseFormData, chatId: string, token: string): Promise<{ success: boolean; error?: string }> {
   // Форматуємо повідомлення для замовлення
   const formattedPhone = formatPhoneNumber(data.phone);
   const { productDetails } = data;
@@ -71,15 +53,9 @@ async function sendPurchaseToTelegram(data: PurchaseFormData): Promise<{ success
     minute: '2-digit'
   })}
 
-<a href="tel:${formattedPhone}">📞 Зателефонувати клієнту</a>`;
+<a href="tel:${formattedPhone}"></a>`;
 
   const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
-  
-  console.log('Sending purchase order to Telegram:', {
-    url: telegramUrl.replace(token, 'BOT_TOKEN_HIDDEN'),
-    chatId,
-    messageLength: message.length
-  });
 
   try {
     const response = await fetch(telegramUrl, {
@@ -96,15 +72,9 @@ async function sendPurchaseToTelegram(data: PurchaseFormData): Promise<{ success
     });
 
     const result = await response.json();
-    
-    console.log('Telegram API response for purchase:', {
-      status: response.status,
-      ok: response.ok,
-      result: result
-    });
 
     if (!response.ok || !result.ok) {
-      console.error('Telegram API error for purchase:', result);
+      console.error(`Telegram API error for purchase in chat ${chatId}:`, result);
       return { 
         success: false, 
         error: result.description || 'Telegram API error' 
@@ -113,12 +83,95 @@ async function sendPurchaseToTelegram(data: PurchaseFormData): Promise<{ success
 
     return { success: true };
   } catch (error) {
-    console.error('Error sending purchase to Telegram:', error);
+    console.error(`Error sending purchase to Telegram chat ${chatId}:`, error);
     return { 
       success: false, 
       error: error instanceof Error ? error.message : 'Unknown error' 
     };
   }
+}
+
+// Функція для відправки повідомлення про замовлення в Telegram (в особисті та групу)
+async function sendPurchaseToTelegram(data: PurchaseFormData): Promise<{ success: boolean; error?: string }> {
+  const token = process.env.TELEGRAM_BOT_TOKEN;
+  const personalChatId = process.env.TELEGRAM_CHAT_ID;
+  const groupChatId = process.env.TELEGRAM_GROUP_CHAT_ID;
+
+  console.log('Purchase Environment check:', {
+    hasToken: !!token,
+    hasPersonalChatId: !!personalChatId,
+    hasGroupChatId: !!groupChatId,
+    tokenLength: token?.length || 0,
+    personalChatId: personalChatId, // Тимчасово для дебагу - приберіть це в продакшені
+    groupChatId: groupChatId // Тимчасово для дебагу - приберіть це в продакшені
+  });
+
+  if (!token) {
+    console.error('Telegram bot token not configured');
+    return { 
+      success: false, 
+      error: 'Telegram bot token not configured' 
+    };
+  }
+
+  if (!personalChatId && !groupChatId) {
+    console.error('No Telegram chat IDs configured');
+    return { 
+      success: false, 
+      error: 'No Telegram chat IDs configured' 
+    };
+  }
+
+  const results = [];
+  let hasError = false;
+  let errorMessages = [];
+
+  // Відправляємо в особисті повідомлення (якщо налаштовано)
+  if (personalChatId) {
+    console.log('Sending purchase order to personal chat:', personalChatId);
+    const personalResult = await sendPurchaseToTelegramChat(data, personalChatId, token);
+    results.push({ type: 'personal', ...personalResult });
+    
+    if (!personalResult.success) {
+      hasError = true;
+      errorMessages.push(`Personal chat: ${personalResult.error}`);
+    }
+  }
+
+  // Відправляємо в групу (якщо налаштовано)
+  if (groupChatId) {
+    console.log('Sending purchase order to group chat:', groupChatId);
+    const groupResult = await sendPurchaseToTelegramChat(data, groupChatId, token);
+    results.push({ type: 'group', ...groupResult });
+    
+    if (!groupResult.success) {
+      hasError = true;
+      errorMessages.push(`Group chat: ${groupResult.error}`);
+    }
+  }
+
+  console.log('Telegram purchase sending results:', results);
+
+  // Якщо всі відправки провалилися
+  if (hasError && results.every(r => !r.success)) {
+    return {
+      success: false,
+      error: errorMessages.join('; ')
+    };
+  }
+
+  // Якщо хоча б одна відправка успішна
+  if (results.some(r => r.success)) {
+    if (hasError) {
+      console.warn('Partial success in Telegram purchase sending:', errorMessages);
+    }
+    return { success: true };
+  }
+
+  return {
+    success: false,
+    error: 'Unknown error in Telegram purchase sending'
+  };
 }
 
 // POST метод для обробки запитів на покупку
