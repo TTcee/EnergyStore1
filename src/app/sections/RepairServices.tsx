@@ -130,7 +130,7 @@ export default function RepairServices() {
 
   return (  
     <>
-    <section className="min-h-screen text-white py-16 px-4" id='repair'>
+    <section className="min-h-screen text-white py-16 px-4 snap-start" id='repair'>
       <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-20 mt-[-100]" />
       <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-250] ml-150" />
 

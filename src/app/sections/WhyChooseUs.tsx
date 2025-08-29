@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="whyus"
-      className="min-h-screen flex items-center justify-center text-white px-6 py-16 relative"
+      className="min-h-screen flex items-center justify-center text-white px-6 py-16 relative snap-start"
     >
       {/* Фон */}
       <img src="/shademain2.png" alt="" className="absolute hidden lg:block w-250 z-[-9] ml-[-900] mt-[-600]" />

@@ -110,7 +110,7 @@ export default function ProductionServices() {
   return (
     <section
       id="production"
-      className="min-h-screen flex flex-col items-center justify-center  text-white py-16"
+      className="min-h-screen flex flex-col items-center justify-center  text-white py-16 snap-start"
     >
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-1000] ml-[-1300]  " />
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
