@@ -4,7 +4,7 @@ export default function FindUs() {
   return (
     <section
       id="findus"
-      className="min-h-screen flex items-center justify-center text-black px-4 sm:px-6 lg:px-10 py-10"
+      className="min-h-screen flex items-center justify-center text-black px-4 sm:px-6 lg:px-10 py-10 snap-start"
     >
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-200 z-[-9] ml-[-1400] mt-50" />
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-300 " />
