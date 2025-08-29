@@ -134,7 +134,7 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
     bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
     backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10
     flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
+      <div className="bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
         {/* Кнопка закриття */}
         <button
           onClick={handleClose}
@@ -148,12 +148,12 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
           {/* Крок вибору */}
           {step === 'choose' && (
             <div className="text-center">
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">Hailong акумулятор</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-4">Hailong акумулятор</h2>
 
               {isProductSelected ? (
-                <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                  <h3 className="font-semibold text-gray-700 mb-2">Обрана конфігурація:</h3>
-                  <div className="text-sm text-gray-600 space-y-1">
+                <div className="bg-gray-500 rounded-lg p-4 mb-6">
+                  <h3 className="font-semibold text-white mb-2">Обрана конфігурація:</h3>
+                  <div className="text-sm text-white space-y-1">
                     <p>
                       <span className="font-medium">Хімія:</span> {selectedModel}
                     </p>
@@ -166,12 +166,12 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
                     <p>
                       <span className="font-medium">Модель:</span> {currentHailong}
                     </p>
-                    <p className="text-lg font-bold text-green-600 mt-2">{currentPrice} ₴</p>
+                    <p className="text-lg font-bold text-green-400 mt-2">{currentPrice} ₴</p>
                   </div>
                 </div>
               ) : (
-                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
-                  <p className="text-yellow-800 text-sm">
+                <div className="bg-yellow-500 border border-yellow-200 rounded-lg p-4 mb-6">
+                  <p className="text-white text-sm">
                     Будь ласка, оберіть всі характеристики акумулятора перед продовженням
                   </p>
                 </div>
@@ -203,36 +203,36 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
             <div>
               <button
                 onClick={() => setStep('choose')}
-                className="text-blue-600 hover:text-blue-700 mb-4 flex items-center gap-2"
+                className="text-white hover:text-blue-700 mb-4 flex items-center gap-2"
                 disabled={isSubmitting}
               >
                 ← Назад
               </button>
 
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2">Оформлення замовлення</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Оформлення замовлення</h2>
 
-              <div className="bg-gray-50 rounded-lg p-3 mb-4">
-                <div className="text-sm text-gray-600">
+              <div className="bg-gray-500 rounded-lg p-3 mb-4">
+                <div className="text-sm text-white">
                   <p>
                     <span className="font-medium">Товар:</span> {selectedModel} {selectedVoltage}{' '}
                     {selectedCapacity} ({currentHailong})
                   </p>
-                  <p className="font-bold text-green-600">{currentPrice} ₴</p>
+                  <p className="font-bold text-green-400">{currentPrice} ₴</p>
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+              <p className="text-white mb-6 text-sm sm:text-base">
                 Залиште ваші контактні дані для оформлення замовлення
               </p>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Ваше ім'я *</label>
+                  <label className="block text-sm font-medium text-white mb-2">Ваше ім'я *</label>
                   <input
                     type="text"
                     value={formData.name}
                     onChange={(e) => handleInputChange('name', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 ${
                       errors.name ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="Введіть ваше ім'я"
@@ -242,12 +242,12 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Номер телефону *</label>
+                  <label className="block text-sm font-medium text-white mb-2">Номер телефону *</label>
                   <input
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 placeholder-gray-400 ${
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white placeholder-gray-400 ${
                       errors.phone ? 'border-red-500' : 'border-gray-300'
                     }`}
                     placeholder="+380XX XXX XX XX"
@@ -278,52 +278,52 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
           )}
 
           {/* Крок успіху */}
-          {step === 'success' && (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-green-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Замовлення прийнято!</h2>
-              <p className="text-gray-600">
-                Дякуємо за замовлення!
-                <br />
-                Наш менеджер зв'яжеться з вами для підтвердження.
-              </p>
-            </div>
-          )}
+{step === 'success' && (
+  <div className="text-center py-8">
+    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg
+        className="w-8 h-8 text-green-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <h2 className="text-2xl font-bold !text-white mb-2">Замовлення прийнято!</h2>
+    <p className="text-white">
+      Дякуємо за замовлення!
+      <br />
+      Наш менеджер зв'яжеться з вами для підтвердження.
+    </p>
+  </div>
+)}
 
-          {/* Крок помилки */}
-          {step === 'error' && (
-            <div className="text-center py-8">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg
-                  className="w-8 h-8 text-red-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-2">Упс! Щось пішло не так</h2>
-              <p className="text-gray-600 mb-4">
-                {apiError || 'Не вдалося відправити замовлення. Спробуйте ще раз.'}
-              </p>
-              <button
-                onClick={handleRetry}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-xl transition-colors"
-              >
-                Спробувати ще раз
-              </button>
-            </div>
-          )}
+{/* Крок помилки */}
+{step === 'error' && (
+  <div className="text-center py-8">
+    <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+      <svg
+        className="w-8 h-8 text-red-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </div>
+    <h2 className="text-2xl font-bold text-white mb-2" >Упс! Щось пішло не так</h2>
+    <p className="text-white mb-4">
+      {apiError || 'Не вдалося відправити замовлення. Спробуйте ще раз.'}
+    </p>
+    <button
+      onClick={handleRetry}
+      className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-xl transition-colors"
+    >
+      Спробувати ще раз
+    </button>
+  </div>
+)}
         </div>
       </div>
     </div>
