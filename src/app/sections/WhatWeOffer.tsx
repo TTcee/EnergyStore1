@@ -19,7 +19,7 @@ const ServiceCard = ({
     <div className="w-full max-w-[528px] h-auto min-h-[300px] lg:h-[350px]
              bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
              backdrop-blur-[9px] rounded-[20px] 
-             p-6 sm:p-8 lg:pl-10 lg:pt-15 lg:pr-10 
+             p-6 sm:p-8 lg:pl-10 lg:pt-12 lg:pr-10 
              mx-auto pt-12 hover:scale-105 transform transition-transform duration-300" 
           style={{
             border: "2px solid transparent",
@@ -55,20 +55,20 @@ export default function WhatWeOffer() {
   const services = [
     {
       title: "Ремонтні послуги",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-      href: "/services/repair"
+      description: "Ми виконуємо діагностику та професійний ремонт акумуляторів будь-якої складності. Перепаковуємо старі батареї, відновлюємо їхню ємність і забезпечуємо стабільну роботу. З нами ваш акумулятор знову служитиме довго й надійно.",
+      href: "#repair"
     },
     {
       title: "Виробничі послуги",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.",
-      href: "/services/production"
+      description: "Energy Store виготовляє акумулятори під індивідуальні потреби — від електротранспорту до енергосховищ. Ми пропонуємо кастомні рішення у термоусадці чи коробках під замовлення, використовуючи лише якісні літієві елементи.",
+      href: "#production"
     }
   ];
 
   return (
     <section 
       id="offer" 
-      className="min-h-screen flex flex-col items-center justify-center text-white py-8 sm:py-16 px-4 relative overflow-hidden snap-start" 
+      className="min-h-screen flex flex-col items-center justify-center text-white py-8 sm:py-16 px-4 relative overflow-hidden snap-start pt-30 lg:pt-20" 
     >
       {/* Фонове зображення - тільки на великих екранах */}
       <img 
@@ -87,7 +87,7 @@ export default function WhatWeOffer() {
 
       {/* Заголовок */}
       <h2 className="text-3xl md:text-4xl font-extrabold mb-8 sm:mb-12 
-                     text-center lg:text-left lg:self-start lg:ml-36
+                     text-center lg:text-left lg:self-start lg:ml-36 xl:ml-36
                      px-4 sm:px-0 2xl:ml-85">
         Що ми пропонуємо
       </h2>

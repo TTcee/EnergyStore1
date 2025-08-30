@@ -186,7 +186,7 @@ const Product1Page = () => {
                 />
                 
                 <SelectDropdown
-                  label="В"
+                  label="Напруга, В"
                   value={selectedVoltage}
                   options={availableVoltages}
                   onChange={(val) => {
@@ -197,7 +197,7 @@ const Product1Page = () => {
                 />
                 
                 <SelectDropdown
-                  label="Аг"
+                  label="Ємність, Аг"
                   value={selectedCapacity}
                   options={availableCapacities}
                   onChange={setSelectedCapacity}

@@ -4,7 +4,7 @@ export default function FindUs() {
   return (
     <section
       id="findus"
-      className="min-h-screen flex items-center justify-center text-black px-4 sm:px-6 lg:px-10 py-10 snap-start"
+      className="min-h-screen flex items-center justify-center text-black px-4 sm:px-6 lg:px-10 py-10 snap-start pt-20 lg:pt-10"
     >
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-200 z-[-9] ml-[-1400] mt-50" />
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-300 " />
@@ -29,7 +29,7 @@ export default function FindUs() {
             </p>
             <p className="flex">
               <Mail className="w-8 h-8 text-white-400 mr-4" />
-              <span className="font-normal font-montserrat"></span>eneergystore@gmail.com
+              <a href="mailto:eneergystore@gmail.com" className="cursor-pointer"><span className="font-normal font-montserrat"></span>eneergystore@gmail.com</a>
             </p>
           </div>
 

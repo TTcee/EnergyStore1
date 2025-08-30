@@ -2,7 +2,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center text-white px-6 py-16 snap-start"
+      className="min-h-screen flex items-center justify-center text-white px-6 py-16 snap-start pt-20"
     >
             <img src="/shademain2.png" alt="Моє зображення" className="absolute w-250 z-[-9] mt-[-100] ml-[-900]" />
 

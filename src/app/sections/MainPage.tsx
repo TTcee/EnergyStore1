@@ -9,7 +9,7 @@ export default function MainPage() {
 
   return (
     <>
-      <section id="hero" className="min-h-screen flex  text-white snap-start">
+      <section id="hero" className="min-h-screen flex  text-white snap-start pt-10">
         <img src="/shademain.png" alt="Моє зображення" className="absolute w-200 z-[-10] mt-[-100]" />
         <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-45 " />
           <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-41">
@@ -31,7 +31,7 @@ export default function MainPage() {
     shadow-[0px_4px_12px_rgba(0,0,0,0.45),_-4px_-3px_11px_rgba(93,55,245,0.42)]
     text-white rounded-lg
     transition duration-300 ease-in-out
-    hover:shadow-[0px_0px_25px_rgba(160,107,235,0.9),0px_0px_45px_rgba(0,42,150,0.7)] hover:scale-105 font-montserrat font-bold text-[14px] leading-[20px] text-center text-[#F6F6F6]"
+    hover:shadow-[0px_0px_25px_rgba(160,107,235,0.9),0px_0px_45px_rgba(0,42,150,0.7)] hover:scale-105 font-montserrat font-bold text-[14px] leading-[20px] text-center text-[#F6F6F6] cursor-pointer"
   >
     Отримати <br /> консультацію
   

@@ -40,7 +40,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Energy Store",
   description: "Сайт компанії з виробництва акумуляторів",
-};
+icons: {
+    icon: "/logoV.png", // або /favicon.ico
+  },};
 
 export default function RootLayout({
   children,
