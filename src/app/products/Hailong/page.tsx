@@ -52,23 +52,41 @@ const Product1Page = () => {
     { id: "lifepo4", label: "LiFePo4", value: "LiFePo4" },
   ];
 
-  // Доступні напруги після вибору моделі
-  const availableVoltages = selectedModel
-    ? Array.from(
-        new Set(
-          configurations
-            .filter(c => c.model === selectedModel)
-            .map(c => c.voltage)
-        )
-      )
-    : [];
+  // Функція для перевірки сумісності
+  const isOptionCompatible = (type: 'model' | 'voltage' | 'capacity', value: string): boolean => {
+    if (type === 'model') {
+      return configurations.some(c => 
+        c.model === value &&
+        (!selectedVoltage || c.voltage === selectedVoltage) &&
+        (!selectedCapacity || c.capacity === selectedCapacity)
+      );
+    } else if (type === 'voltage') {
+      return configurations.some(c => 
+        c.voltage === value &&
+        (!selectedModel || c.model === selectedModel) &&
+        (!selectedCapacity || c.capacity === selectedCapacity)
+      );
+    } else { // capacity
+      return configurations.some(c => 
+        c.capacity === value &&
+        (!selectedModel || c.model === selectedModel) &&
+        (!selectedVoltage || c.voltage === selectedVoltage)
+      );
+    }
+  };
 
-  // Доступні ємності після вибору моделі та напруги
-  const availableCapacities = selectedModel && selectedVoltage
-    ? configurations
-        .filter(c => c.model === selectedModel && c.voltage === selectedVoltage)
-        .map(c => c.capacity)
-    : [];
+  // Всі доступні моделі
+  const allModels = models.map(m => m.value);
+
+  // Всі доступні напруги
+  const allVoltages = Array.from(
+    new Set(configurations.map(c => c.voltage))
+  );
+
+  // Всі доступні ємності
+  const allCapacities = Array.from(
+    new Set(configurations.map(c => c.capacity))
+  );
 
   // Поточний Hailong
   const currentHailong = selectedModel && selectedVoltage && selectedCapacity
@@ -94,20 +112,59 @@ const Product1Page = () => {
     }
   }, [selectedModel, selectedVoltage, selectedCapacity]);
 
-  const SelectDropdown = ({
+  // Функції зміни параметрів
+  const handleModelChange = (value: string) => {
+    setSelectedModel(value);
+    
+    // Перевіряємо сумісність поточних параметрів з новою моделлю
+    if (selectedVoltage && !configurations.some(c => c.model === value && c.voltage === selectedVoltage)) {
+      setSelectedVoltage("");
+    }
+    if (selectedCapacity && !configurations.some(c => c.model === value && c.capacity === selectedCapacity)) {
+      setSelectedCapacity("");
+    }
+  };
+
+  const handleVoltageChange = (value: string) => {
+    setSelectedVoltage(value);
+    
+    // Перевіряємо сумісність поточних параметрів з новою напругою
+    if (selectedModel && !configurations.some(c => c.voltage === value && c.model === selectedModel)) {
+      setSelectedModel("");
+    }
+    if (selectedCapacity && !configurations.some(c => c.voltage === value && c.capacity === selectedCapacity)) {
+      setSelectedCapacity("");
+    }
+  };
+
+  const handleCapacityChange = (value: string) => {
+    setSelectedCapacity(value);
+    
+    // Перевіряємо сумісність поточних параметрів з новою ємністю
+    if (selectedModel && !configurations.some(c => c.capacity === value && c.model === selectedModel)) {
+      setSelectedModel("");
+    }
+    if (selectedVoltage && !configurations.some(c => c.capacity === value && c.voltage === selectedVoltage)) {
+      setSelectedVoltage("");
+    }
+  };
+
+  const SmartSelectDropdown = ({
     label,
     value,
     options,
     onChange,
-    placeholder
+    placeholder,
+    type
   }: {
     label: string;
     value: string;
     options: string[];
     onChange: (value: string) => void;
     placeholder: string;
+    type: 'model' | 'voltage' | 'capacity';
   }) => (
-    <div className="flex flex-col ">
+    <div className="flex flex-col">
       <label className="text-white text-sm mb-2 font-medium">{label}</label>
       <div className="relative">
         <select
@@ -116,18 +173,26 @@ const Product1Page = () => {
           className="w-full bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
             backdrop-blur-[38.5px] rounded-[20px] border border-gray-600 rounded-lg px-4 py-3 text-gray appearance-none cursor-pointer hover:border-gray-500 focus:border-blue-500 focus:outline-none transition-colors"
         >
-          <option value="" disabled hidden
-          >
+          <option value="" disabled hidden>
             {placeholder}
           </option>
-          {options.map((val) => (
-            <option key={val} value={val}
-             className="w-full bg-black/90 text-white rounded-xl px-4 py-3 
-             border border-blue-500  focus:border-blue-500 outline-none"
-            >
-              {val}
-            </option>
-          ))}
+          {options.map((val) => {
+            const isCompatible = isOptionCompatible(type, val);
+            return (
+              <option 
+                key={val} 
+                value={val}
+                className={`w-full rounded-xl px-4 py-3 border border-blue-500 focus:border-blue-500 outline-none ${
+                  isCompatible 
+                    ? 'bg-black/90 text-white' 
+                    : 'bg-red-900/50 text-red-300'
+                }`}
+                title={isCompatible ? '' : 'Ця опція не підходить під вибрану конфігурацію'}
+              >
+                {val}
+              </option>
+            );
+          })}
         </select>
         <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
           <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,9 +204,8 @@ const Product1Page = () => {
   );
 
   return (
-    
     <div className=" py-16">
-           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]  bg-center bg-cover ml-[-5]"/>
+      <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]  bg-center bg-cover ml-[-5]"/>
 
       <div className="max-w-7xl mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -173,40 +237,36 @@ const Product1Page = () => {
 
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <SelectDropdown
+                <SmartSelectDropdown
                   label="Хімія"
                   value={selectedModel}
-                  options={models.map(m => m.value)}
-                  onChange={(val) => {
-                    setSelectedModel(val);
-                    setSelectedVoltage("");
-                    setSelectedCapacity("");
-                  }}
+                  options={allModels}
+                  onChange={handleModelChange}
                   placeholder="..."
+                  type="model"
                 />
                 
-                <SelectDropdown
-                  label="Напруга, В"
+                <SmartSelectDropdown
+                  label="В"
                   value={selectedVoltage}
-                  options={availableVoltages}
-                  onChange={(val) => {
-                    setSelectedVoltage(val);
-                    setSelectedCapacity("");
-                  }}
+                  options={allVoltages}
+                  onChange={handleVoltageChange}
                   placeholder="..."
+                  type="voltage"
                 />
                 
-                <SelectDropdown
-                  label="Ємність, Аг"
+                <SmartSelectDropdown
+                  label="Аг"
                   value={selectedCapacity}
-                  options={availableCapacities}
-                  onChange={setSelectedCapacity}
+                  options={allCapacities}
+                  onChange={handleCapacityChange}
                   placeholder="..."
+                  type="capacity"
                 />
               </div>
 
               {currentHailong && (
-                <p className="absolute text-gray-400 text-[16px] text-sm mt-0 ">Обрана вами модель - {currentHailong}</p>
+                <p className="text-gray-400 text-[16px] text-sm mt-4">Обрана вами модель - {currentHailong}</p>
               )}
 
               <div className="flex items-center justify-between pt-6 mt-15">
@@ -225,8 +285,6 @@ const Product1Page = () => {
   </div>
 </button>
 
-
-                
                 <div className="text-right">
                   <div className="text-3xl font-bold text-green-400">
                     {currentPrice} ₴
