@@ -14,11 +14,11 @@ const Product6Page = () => {
           {/* Ліва частина - placeholder для зображення */}
           <div className="flex justify-center">
             <div className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
-            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 h-130 w-full"></div>
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 lg:h-130 h-100 w-full"></div>
           </div>
 
           {/* Права частина - текст */}
-          <div className="text-white space-y-4 w-130 ml-10">
+          <div className="text-white space-y-4 lg:ml-10 ml-0 lg:w-130 w-110">
             <h1 className="text-5xl font-bold text-white mb-6">
               Акумулятор для систем збереження енергії
             </h1>
