@@ -16,7 +16,7 @@ export default function FindUs() {
           <h2 className="text-2xl sm:text-3xl text-white lg:text-4xl font-extrabold">
             Де нас знайти
           </h2>
-          <hr className="border-white border-[1.5px] w-md sm:md md:md" />
+          <hr className="border-white border-[1.5px] w-sm sm:md md:md" />
 
           <div className="space-y-5 text-base text-white sm:text-lg">
             <p className="flex">
@@ -33,14 +33,14 @@ export default function FindUs() {
             </p>
           </div>
 
-          <hr className="border-white border-[1.5px] w-md sm:w-md md:w-md" />
+          <hr className="border-white border-[1.5px] w-sm sm:md md-md" />
 
           <div className="text-white">
             <h3 className="text-lg sm:text-xl font-semibold mb-2">
               Графік роботи:
             </h3>
-            <p>Пн–Пт: 10:00 – 17:00</p>
-            <p>Сб–Нд: вихідний</p>
+            <p className="text-[18px] mt-3">Пн–Пт: 10:00 – 17:00</p>
+            <p className="text-[18px] mt-3">Сб–Нд: вихідний</p>
           </div>
         </div>
 

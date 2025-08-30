@@ -20,16 +20,22 @@ const ProductCard = ({
   href 
 }: ProductCardProps) => {
   return (
-    <div className="bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
-             backdrop-blur-[9px] rounded-[6px] p-6 text-white max-w-sm h-[400px] flex flex-col">
-      
+    <Link href={href}>
+
+    <div className="relative group bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
+             backdrop-blur-[9px] rounded-[6px] p-6 text-white max-w-sm h-[400px] flex flex-col transition-transform duration-300 hover:scale-[1.03]">
+      <div className="absolute inset-0 overflow-hidden rounded-[6px]">
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div className="w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"></div>
+  </div>
+</div>
       {/* Блок для зображення */}
       <div className="flex justify-center items-center h-[180px] mb-4">
         {image ? (
           <img 
             src={image} 
             alt={title} 
-            className="h-full object-contain"
+            className="h-full object-contain z-20"
           />
         ) : (
           <div className="w-32 h-24 bg-gray-600 rounded"></div>
@@ -46,16 +52,15 @@ const ProductCard = ({
 
       {/* Кнопки й ціна завжди внизу */}
       <div className="flex items-center justify-between mt-auto">
-        <Link href={href}>
-          <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors">
+          <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg font-medium transition-colors cursor-pointer">
             {buttonText}
           </button>
-        </Link>
         <span className="text-green-400 font-bold text-lg">
           від {price} ₴
         </span>
       </div>
     </div>
+    </Link>
   );
 };
 
@@ -116,7 +121,7 @@ export default function ProductionServices() {
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
 
 
-      <h2 className="text-3xl font-semibold mb-12 ml-[-880]">Виробничі послуги</h2>
+      <h2 className="text-3xl md:text-4xl font-extrabold mb-12 lg:ml-[-830]">Виробничі послуги</h2>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
         {products.map((product, index) => (

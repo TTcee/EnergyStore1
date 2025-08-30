@@ -20,7 +20,7 @@ const ServiceCard = ({
              bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
              backdrop-blur-[9px] rounded-[20px] 
              p-6 sm:p-8 lg:pl-10 lg:pt-15 lg:pr-10 
-             mx-auto" 
+             mx-auto pt-12 hover:scale-105 transform transition-transform duration-300" 
           style={{
             border: "2px solid transparent",
             WebkitMaskImage: "-webkit-radial-gradient(white, black)"
@@ -86,7 +86,7 @@ export default function WhatWeOffer() {
       </div>
 
       {/* Заголовок */}
-      <h2 className="text-2xl sm:text-3xl font-semibold mb-8 sm:mb-12 
+      <h2 className="text-3xl md:text-4xl font-extrabold mb-8 sm:mb-12 
                      text-center lg:text-left lg:self-start lg:ml-36
                      px-4 sm:px-0 2xl:ml-85">
         Що ми пропонуємо

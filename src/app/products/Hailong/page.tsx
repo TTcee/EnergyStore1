@@ -140,14 +140,14 @@ const Product1Page = () => {
 
   return (
     
-    <div className=" py-16 px-4">
-           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10] "/>
+    <div className=" py-16">
+           <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]  bg-center bg-cover ml-[-5]"/>
 
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           <div className="flex justify-center lg:justify-start">
             <div className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
-            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 h-130 w-full">
+            backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 lg:h-130 h-100 w-full">
               <div className="aspect-square ">
                   <div className="text-center">
                     <div className="  mb-4"><img src="/hailong.png" alt="" className="mt-17"/></div>
@@ -206,15 +206,23 @@ const Product1Page = () => {
               </div>
 
               {currentHailong && (
-                <p className="absolute text-gray-400 text-sm mt-0 ">{currentHailong}</p>
+                <p className="absolute text-gray-400 text-[16px] text-sm mt-0 ">Обрана вами модель - {currentHailong}</p>
               )}
 
-              <div className="flex items-center justify-between pt-6 mt-38">
-                <button className="bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
-             rounded-[10px] hover:bg-blue-700 text-white font-semibold px-8 py-4
+              <div className="flex items-center justify-between pt-6 mt-15">
+               <button
+  className="relative overflow-hidden bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
+             rounded-[10px] text-white font-semibold px-8 py-4
              text-[13px] leading-[19px] tracking-[0.02em] w-xs border border-white/20
-             transition-transform duration-300 ease-in-out transform hover:scale-110" onClick={() => setIsProductModalOpen(true)}>
-  Зв'язатись з нами
+             transition-transform duration-300 ease-in-out transform hover:scale-110 group cursor-pointer"
+  onClick={() => setIsProductModalOpen(true)}
+>
+  <span className="relative z-10">Зв'язатись з нами</span>
+
+  {/* Перелив */}
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div className="w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"></div>
+  </div>
 </button>
 
 
