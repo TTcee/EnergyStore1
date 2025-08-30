@@ -50,55 +50,57 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="sticky top-0 w-full h-[70px] bg-[linear-gradient(3.79deg,#0D0D0D_-17.01%,#4635A9_734.79%)] z-50">
-      <nav className="flex items-center px-4 md:px-40 font-montserratAlt h-full">
-        <img src="/logo.png" alt="Лого" className="w-[92px]" />
+    <header className="sticky top-0 h-20 w-full bg-[linear-gradient(3.79deg,#0D0D0D_-17.01%,#4635A9_734.79%)] z-50 justify-center">
+  <nav className="flex items-center px-4 sm:px-6 md:px-20 py-2 md:py-3 font-montserratAlt">
+    {/* Логотип */}
+    <img src="/logo.png" alt="Лого" className="w-20 sm:w-24 md:w-[92px] lg:ml-20 ml-0 mr-20 mt-2" />
 
-        {/* Desktop меню */}
-        <ul className="hidden md:flex items-center space-x-20 list-none ml-20">
-          {navItems.map((item) => (
-            <li key={item.sectionId} className="relative group font-[14px]">
-              <button
-                onClick={() => scrollToSection(item)}
-                className={`relative after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
-                  after:bottom-[-6px] after:h-[2px] after:bg-white 
-                  after:transition-all after:duration-300 after:ease-out
-                  ${activeSection === item.sectionId ? "after:w-[40px]" : "after:w-0 group-hover:after:w-[40px]"}`}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+    {/* Desktop меню */}
+    <ul className="hidden md:flex items-center space-x-8 lg:space-x-20 list-none space-x-10 mt-4">
+      {navItems.map((item) => (
+        <li key={item.sectionId} className="relative group font-[14px]">
+          <button
+            onClick={() => scrollToSection(item)}
+            className={`relative after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
+              after:bottom-[-6px] after:h-[2px] after:bg-white 
+              after:transition-all after:duration-300 after:ease-out
+              ${activeSection === item.sectionId ? "after:w-[40px]" : "after:w-0 group-hover:after:w-[40px]"}`}
+          >
+            {item.label}
+          </button>
+        </li>
+      ))}
+    </ul>
 
-        {/* Mobile кнопка */}
-        <button
-          className="md:hidden text-white ml-auto"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
+    {/* Mobile кнопка */}
+    <button
+      className="md:hidden text-white ml-auto"
+      onClick={() => setMenuOpen(!menuOpen)}
+    >
+      {menuOpen ? <X size={28} /> : <Menu size={28} />}
+    </button>
+  </nav>
 
-      {/* Mobile меню */}
-      {menuOpen && (
-        <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-black/90 text-white font-montserratAlt">
-          {navItems.map((item) => (
-            <li key={item.sectionId} className="relative group">
-              <button
-                onClick={() => scrollToSection(item)}
-                className={`relative after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
-                  after:bottom-[-6px] after:h-[2px] after:bg-white 
-                  after:transition-all after:duration-300 after:ease-out
-                  ${activeSection === item.sectionId ? "after:w-[40px]" : "after:w-0 group-hover:after:w-[40px]"}`}
-              >
-                {item.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </header>
+  {/* Mobile меню */}
+  {menuOpen && (
+    <ul className="md:hidden flex flex-col items-center space-y-6 py-6 bg-black/90 text-white font-montserratAlt">
+      {navItems.map((item) => (
+        <li key={item.sectionId} className="relative group">
+          <button
+            onClick={() => scrollToSection(item)}
+            className={`relative after:content-[''] after:absolute after:left-1/2 after:translate-x-[-50%]
+              after:bottom-[-6px] after:h-[2px] after:bg-white 
+              after:transition-all after:duration-300 after:ease-out
+              ${activeSection === item.sectionId ? "after:w-[40px]" : "after:w-0 group-hover:after:w-[40px]"}`}
+          >
+            {item.label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  )}
+</header>
+
   );
 };
 

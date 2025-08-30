@@ -18,7 +18,7 @@ const Product6Page = () => {
           </div>
 
           {/* Права частина - текст */}
-          <div className="text-white space-y-4">
+          <div className="text-white space-y-4 w-130 ml-10">
             <h1 className="text-5xl font-bold text-white mb-6">
               Акумулятор для систем збереження енергії
             </h1>
@@ -43,15 +43,20 @@ const Product6Page = () => {
             </div>
             
             {/* Кнопка */}
-            <button 
-              onClick={openModal}
-              className="bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
-             rounded-[10px] hover:bg-blue-700 text-white font-semibold px-8 py-4
-             text-[13px] leading-[19px] tracking-[0.02em] w-full border border-white/20
-             transition-transform duration-300 ease-in-out transform hover:scale-110"
-            >
-              Зв'язатись з нами
-            </button>
+            <button
+  className="w-full relative overflow-hidden bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
+             rounded-[10px] text-white font-semibold px-8 py-4
+             text-[13px] leading-[19px] tracking-[0.02em]  border border-white/20
+             transition-transform duration-300 ease-in-out transform hover:scale-105 group cursor-pointer"
+  onClick={openModal}
+>
+  <span className="relative z-10">Зв'язатись з нами</span>
+
+  {/* Перелив */}
+  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    <div className="w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shine"></div>
+  </div>
+</button>
           </div>
         </div>
       </div>

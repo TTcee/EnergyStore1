@@ -4,26 +4,26 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="w-full text-white pb-5 bg-[linear-gradient(3.79deg,#0D0D0D_-17.01%,#4635A9_734.79%)]">
-      <div className="max-w-[1240px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center md:justify-between space-y-6 md:space-y-0">
-        
-        {/* Лівий блок: логотип */}
-        <div className="flex justify-center md:justify-start">
-          <img src="/logo.png" alt="Лого" className="w-24" />
+      <div className="max-w-[1240px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center md:justify-between">
+
+        {/* Логотип */}
+        <div className="flex justify-center md:justify-start mb-6 md:mb-0 hover:scale-105 transform transition-transform duration-300">
+          <a href="#hero"><img src="/logo.png" alt="Лого" className="w-24" /></a>
         </div>
 
-        {/* Середній блок: меню */}
-        <ul className="flex flex-col md:flex-row md:justify-start gap-y-3 md:gap-y-0 md:gap-x-10 text-sm md:text-base font-montserratAlt text-center md:text-left space-x-10">
-          <li><Link href="/">Головна</Link></li>
-          <li><Link href="#about">Про нас</Link></li>
-          <li><Link href="#offer">Послуги</Link></li>
-          <li><Link href="#production">Товари</Link></li>
-          <li><Link href="#repair">Ремонт</Link></li>
-          <li><Link href="#findus">Контакти</Link></li>
+        {/* Меню */}
+        <ul className="grid grid-cols-3 gap-x-4 gap-y-2 text-sm md:text-base font-montserratAlt text-center md:flex md:gap-x-10 md:text-left md:space-x-10 mb-6 md:mb-0">
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="/">Головна</Link></li>
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="#about">Про нас</Link></li>
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="#offer">Послуги</Link></li>
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="#production">Товари</Link></li>
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="#repair">Ремонт</Link></li>
+          <li className="hover:scale-105 transform transition-transform duration-300"><Link href="#findus">Контакти</Link></li>
         </ul>
 
-        {/* Правий блок: кнопка/іконка */}
+        {/* Стрілка */}
         <div className="flex justify-center md:justify-end">
-          <img src="/arrow.png" alt="Arrow" className="w-7 h-8" />
+          <a href="#hero"><img src="/arrow.png" alt="Arrow" className="w-7 h-8 hover:scale-115 transform transition-transform duration-300" /></a>
         </div>
       </div>
 
@@ -31,9 +31,9 @@ const Footer = () => {
       <div className="max-w-[1240px] mx-auto border-t border-white/50 mt-6 pt-4 text-xs text-white/70 px-6 flex flex-col md:flex-row justify-between items-center">
         <div className="mb-3 md:mb-0">© 2025</div>
         <div className="flex space-x-6">
-          <img src="/Telegram.png" alt="Telegram" className="w-7 h-7" />
-          <img src="/Instagram.png" alt="Instagram" className="w-6 h-6" />
-          <img src="/Tiktok.png" alt="TikTok" className="w-6 h-6" />
+          <a href="https://t.me/energy_storee"target="_blank" rel="noopener noreferrer"><img src="/Telegram.png" alt="Telegram" className="w-7 h-7 hover:scale-115 transform transition-transform duration-300" /></a>
+          <img src="/Instagram.png" alt="Instagram" className="w-6 h-6 hover:scale-115 transform transition-transform duration-300" />
+          <img src="/Tiktok.png" alt="TikTok" className="w-6 h-6 hover:scale-115 transform transition-transform duration-300" />
         </div>
       </div>
     </footer>

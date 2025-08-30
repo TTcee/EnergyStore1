@@ -3,22 +3,22 @@ import { Clock, Award, Settings, Shield } from "lucide-react";
 export default function WhyChooseUs() {
   const cards = [
     {
-      icon: <Clock className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white-200 flex-shrink-0" />,
+      icon: <Clock className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0" />,
       title: "Досвід понад 13 років",
       text: "Маємо понад 13 років досвіду у виробництві та ремонті акумуляторів, тому гарантуємо якість і надійність у кожному рішенні.",
     },
     {
-      icon: <Award className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white-200 flex-shrink-0" />,
+      icon: <Award className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0" />,
       title: "Надійність та довговічність",
       text: "Застосовуємо перевірені літієві елементи та сучасне складання, щоб батареї працювали стабільно й витримували складні умови.",
     },
     {
-      icon: <Settings className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white-400 flex-shrink-0" />,
+      icon: <Settings className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0" />,
       title: "Індивідуальні рішення",
       text: "Розробляємо акумулятори з потрібною ємністю та системою управління живленням під конкретні задачі клієнта.",
     },
     {
-      icon: <Shield className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white-400 flex-shrink-0" />,
+      icon: <Shield className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0" />,
       title: "Безпека понад усе",
       text: "Наші батареї мають захист від перегріву та перевантаження, що гарантує максимальну безпеку під час використання.",
     },
@@ -37,7 +37,7 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
         {/* Ліва частина */}
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-6 lg:ml-10" >
             Чому обирають нас
           </h2>
 
@@ -53,12 +53,13 @@ export default function WhyChooseUs() {
                            rounded-[10px]
                            box-border
                            border border-white/20
-                           w-full overflow-hidden"
+                           w-full overflow-hidden
+                           lg:h-27 lg:ml-10"
               >
                 {card.icon}
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 mt-[-4]">
                   <h3 className="text-lg font-semibold break-words">{card.title}</h3>
-                  <p className="text-gray-300 text-sm break-words">{card.text}</p>
+                  <p className="text-gray-300 text-[13px] break-words">{card.text}</p>
                 </div>
               </div>
             ))}
@@ -70,7 +71,7 @@ export default function WhyChooseUs() {
           <img
             src="/dotsForWHYUSPage.png"
             alt="Про нашу компанію"
-            className="mt-10 max-w-full h-auto"
+            className="mt-12 max-w-full h-127"
           />
         </div>
       </div>
