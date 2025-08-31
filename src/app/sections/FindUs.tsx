@@ -16,7 +16,7 @@ export default function FindUs() {
           <h2 className="text-2xl sm:text-3xl text-white lg:text-4xl font-extrabold">
             Де нас знайти
           </h2>
-          <hr className="border-white border-[1.5px] w-sm sm:md md:md" />
+          <hr className="border-white border-[1.5px] w-sm sm:md md:md md:w-[80%]" />
 
           <div className="space-y-5 text-base text-white sm:text-lg">
             <p className="flex">
@@ -33,7 +33,7 @@ export default function FindUs() {
             </p>
           </div>
 
-          <hr className="border-white border-[1.5px] w-sm sm:md md-md" />
+          <hr className="border-white border-[1.5px] w-sm sm:md md-md md:w-[80%]" />
 
           <div className="text-white">
             <h3 className="text-lg sm:text-xl font-semibold mb-2">
@@ -49,13 +49,13 @@ export default function FindUs() {
           className="ml-[-100] 
           w-full h-64      
           sm:w-[90%] sm:h-80 
-          md:w-[100%] md:h-[250px] 
+          md:w-[100%] md:h-[300px] 
           lg:w-[100%] lg:h-[350px] 
           xl:w-[100%] xl:h-[410px]"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.5575927768773!2d23.9686505!3d49.8319797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473ae74070ed9ee3%3A0x965ed1e1bb37a3c9!2sEnergy%20Store!5e0!3m2!1suk!2sua!4v1756306870511!5m2!1suk!2sua"
-            className="w-sm ml-32 h-full rounded-lg shadow-lg sm:w-2xl sm:ml-[-20]"
+            className="w-sm ml-32 h-full rounded-lg shadow-lg sm:w-2xl sm:ml-[-20] md:w-[110%] md:ml-10 lg:w-2xl"
             style={{ border: 0 }}
             loading="lazy"
           ></iframe>

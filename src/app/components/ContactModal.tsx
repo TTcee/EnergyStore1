@@ -111,13 +111,15 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
+          onClick={handleClose}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 30 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative shadow-xl max-h-[90vh] overflow-y-auto"
+            className="bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative shadow-xl max-h-[90vh] overflow-y-auto z-51"
+            onClick={(e) => e.stopPropagation()} 
           >
             <button
               onClick={handleClose}

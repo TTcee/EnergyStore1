@@ -205,7 +205,9 @@ const Product1Page = () => {
 
   return (
     <div className=" py-16">
-      <img src="/productsback.png" alt="" className="absolute mt-[-200] z-[-10]  bg-center bg-cover ml-[-5]"/>
+      <img src="/shademain2.png" alt="" className="absolute lg:mt-[-850] z-[-10]  bg-center bg-cover lg:ml-[-600] mt-[-200] ml-[-100]"/>
+      <img src="/shademain2.png" alt="" className="absolute lg:mt-[-700] z-[-10]  bg-center bg-cover lg:ml-[300] mt-70 lg:w-300 w-400 ml-60"/>
+
 
       <div className="max-w-7xl mx-auto px-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -214,7 +216,7 @@ const Product1Page = () => {
             backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 rounded-2xl p-8 max-w-300 lg:h-130 h-100 w-full">
               <div className="aspect-square ">
                   <div className="text-center">
-                    <div className="  mb-4"><img src="/hailong.png" alt="" className="mt-17"/></div>
+                    <div className="  mb-4"><img src="/hailong.png" alt="" className="lg:mt-17 lg:ml-0 md:mt-0 md:ml-40 mt-13"/></div>
                   </div>
               </div>
             </div>
@@ -247,7 +249,7 @@ const Product1Page = () => {
                 />
                 
                 <SmartSelectDropdown
-                  label="В"
+                  label="Напруга, В"
                   value={selectedVoltage}
                   options={allVoltages}
                   onChange={handleVoltageChange}
@@ -256,7 +258,7 @@ const Product1Page = () => {
                 />
                 
                 <SmartSelectDropdown
-                  label="Аг"
+                  label="Ємність, Аг"
                   value={selectedCapacity}
                   options={allCapacities}
                   onChange={handleCapacityChange}
