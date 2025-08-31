@@ -3,22 +3,22 @@ import { Clock, Award, Settings, Shield } from "lucide-react";
 export default function WhyChooseUs() {
   const cards = [
     {
-      icon: <Clock className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0" />,
+      icon: <Clock className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0 md:mt-0" />,
       title: "Досвід понад 13 років",
       text: "Маємо понад 13 років досвіду у виробництві та ремонті акумуляторів, тому гарантуємо якість і надійність у кожному рішенні.",
     },
     {
-      icon: <Award className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0" />,
+      icon: <Award className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-200 flex-shrink-0 mt-6 lg:mt-0 md:mt-0" />,
       title: "Надійність та довговічність",
       text: "Застосовуємо перевірені літієві елементи та сучасне складання, щоб батареї працювали стабільно й витримували складні умови.",
     },
     {
-      icon: <Settings className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0" />,
+      icon: <Settings className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0 md:mt-0" />,
       title: "Індивідуальні рішення",
       text: "Розробляємо акумулятори з потрібною ємністю та системою управління живленням під конкретні задачі клієнта.",
     },
     {
-      icon: <Shield className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0" />,
+      icon: <Shield className="w-12 h-12 sm:w-16 sm:h-16 lg:w-15 lg:h-15 text-white-400 flex-shrink-0 mt-6 lg:mt-0 md:mt-0" />,
       title: "Безпека понад усе",
       text: "Наші батареї мають захист від перегріву та перевантаження, що гарантує максимальну безпеку під час використання.",
     },

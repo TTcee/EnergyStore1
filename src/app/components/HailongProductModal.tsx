@@ -133,12 +133,12 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
     <div className="fixed inset-0 
     bg-[linear-gradient(110.99deg,rgba(255,255,255,0.08)_-24.09%,rgba(115,115,115,0.04)_118.13%)] 
     backdrop-blur-[9px] rounded-[6px] pl-10 pt-15 pr-10
-    flex items-center justify-center z-50 p-4">
-      <div className="bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto">
+    flex items-center justify-center z-50 p-4" onClick={handleClose}>
+      <div className="bg-[#242424] rounded-2xl w-full max-w-md mx-auto relative animate-in fade-in-0 zoom-in-95 duration-200 max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()} >
         {/* Кнопка закриття */}
         <button
           onClick={handleClose}
-          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          className="absolute right-4 top-4 text-gray-400 hover:text-gray-600 transition-colors z-10 cursor-pointer"
           disabled={isSubmitting}
         >
           <X size={24} />
@@ -181,7 +181,7 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
                 <button
                   onClick={() => setStep('purchase')}
                   disabled={!isProductSelected}
-                  className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3"
+                  className="w-full bg-green-600 hover:bg-green-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3 cursor-pointer"
                 >
                   <ShoppingCart size={20} />
                   Купити зараз
@@ -189,7 +189,7 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
 
                 <button
                   onClick={handleConsultationClick}
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-3 cursor-pointer"
                 >
                   <MessageCircle size={20} />
                   Замовити консультацію
@@ -203,13 +203,13 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
             <div>
               <button
                 onClick={() => setStep('choose')}
-                className="text-white hover:text-blue-700 mb-4 flex items-center gap-2"
+                className="text-white hover:text-blue-700 mb-4 flex items-center gap-2 cursor-pointer"
                 disabled={isSubmitting}
               >
                 ← Назад
               </button>
 
-              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2">Оформлення замовлення</h2>
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 cursor-pointer">Оформлення замовлення</h2>
 
               <div className="bg-gray-500 rounded-lg p-3 mb-4">
                 <div className="text-sm text-white">
@@ -268,7 +268,7 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
                     </>
                   ) : (
                     <>
-                      <ShoppingCart size={20} />
+                      <ShoppingCart size={20}  className='cursor-pointer'/>
                       Оформити замовлення
                     </>
                   )}
@@ -318,7 +318,7 @@ const HailongProductModal: React.FC<HailongProductModalProps> = ({
     </p>
     <button
       onClick={handleRetry}
-      className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-xl transition-colors"
+      className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-xl transition-colors cursor-pointer"
     >
       Спробувати ще раз
     </button>

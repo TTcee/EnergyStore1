@@ -68,7 +68,7 @@ export default function WhatWeOffer() {
   return (
     <section 
       id="offer" 
-      className="min-h-screen flex flex-col items-center justify-center text-white py-8 sm:py-16 px-4 relative overflow-hidden snap-start pt-30 lg:pt-20" 
+      className="min-h-screen flex flex-col items-center justify-center text-white py-8 sm:py-16 px-4 relative overflow-hidden snap-start pt-30 lg:pt-20 md:pt-32" 
     >
       {/* Фонове зображення - тільки на великих екранах */}
       <img 

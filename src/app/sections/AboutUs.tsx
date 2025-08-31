@@ -19,8 +19,8 @@ export default function AboutUs() {
            <img
              src="/dotsForSecPage.png"
              alt="Декоративні точки"
-             className="absolute z-[-10] ml-1 top-10 sm:top-12 md:top-18 lg:top-20
-             left-[-30] sm:left-[-30] md:left-[-42] lg:left-[-48] w-full h-full object-contain"
+             className="absolute z-[-10] ml-1 top-11 sm:top-12 md:top-18 lg:top-20
+             left-[-31] sm:left-[-30] md:ml-[-14] lg:left-[-48] w-full h-full object-contain lg:ml-1"
               />
           </div>
         </div>
