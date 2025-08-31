@@ -22,7 +22,7 @@ const Product2Page = () => {
             <div className="flex justify-center lg:justify-start">
               <div className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
                 backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 p-8 max-w-full lg:h-[500px] h-[350px] w-full">
-                                      <div className=" "><img src="/TermoProduct.png" alt="" className="lg:mt-10 md:mt-[-20] md:ml-50 md:w-[500px] lg:w-[500px] lg:ml-10 "/></div>
+                                      <div className=" "><img src="/TermuhaProduct.png" alt="" className="lg:mt-10 md:mt-[-20] md:ml-50 md:w-[500px] lg:w-[500px] lg:ml-0 "/></div>
 
               </div>
             </div>

@@ -30,7 +30,7 @@ const ProductCard = ({
   </div>
 </div>
       {/* Блок для зображення */}
-      <div className="flex justify-center items-center h-[180px] mb-4">
+      <div className="flex justify-center items-center h-[160px] mb-4">
         {image ? (
           <img 
             src={image} 
@@ -80,14 +80,14 @@ export default function ProductionServices() {
       description: "Акумулятори у термоусадці — надійні, компактні та готові до використання.",
       price: "1 200",
       href: "/products/YourSize",
-      image: "/termo.png"
+      image: "/termuha.png"
     },
     {
       title: "Акумулятор з Ваших елементів",
       description: "Ми зберемо акумулятори з ваших елементів, використовуючи професійне обладнання.",
       price: "1 300",
       href: "/products/YourElements",
-      image: undefined
+      image: "/termo.png"
     },
     {
       title: "Комплектація велосипеда з коробкою",
@@ -95,6 +95,7 @@ export default function ProductionServices() {
       price: "3 600",
       href: "/products/Bike",
       image: undefined
+
     },
     {
       title: "Індивідуальні акумулятори",
