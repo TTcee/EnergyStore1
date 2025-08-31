@@ -108,7 +108,7 @@ export default function ProductionServices() {
       description: "Потужні акумулятори для енергозберігаючі та автономних систем.",
       price: "112 000",
       href: "/products/SaveEnergySystem",
-      image: undefined
+      image: "/SaveEnergyProduct.png"
     }
   ];
 

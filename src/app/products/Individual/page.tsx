@@ -31,6 +31,8 @@ const Product5Page = () => {
                 className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
                   backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 p-8 max-w-full lg:h-[500px] h-[350px] w-full"
               >
+                                                                      <div className=" "><img src="/SES.png" alt="" className="lg:mt-17 md:mx-auto md:my-auto md:w-sm "/></div>
+
               </div>
             </div>
 
