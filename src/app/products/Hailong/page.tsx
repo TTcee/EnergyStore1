@@ -185,7 +185,7 @@ const Product1Page = () => {
                 className={`w-full rounded-xl px-4 py-3 border border-blue-500 focus:border-blue-500 outline-none ${
                   isCompatible 
                     ? 'bg-black/90 text-white' 
-                    : 'bg-red-900/50 text-red-300'
+                    : 'bg-red-900/50 text-white'
                 }`}
                 title={isCompatible ? '' : 'Ця опція не підходить під вибрану конфігурацію'}
               >
