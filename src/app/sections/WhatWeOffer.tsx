@@ -87,8 +87,8 @@ export default function WhatWeOffer() {
 
       {/* Заголовок */}
       <h2 className="text-3xl md:text-4xl font-extrabold mb-8 sm:mb-12 
-                     text-center lg:text-left lg:self-start lg:ml-36 xl:ml-36
-                     px-4 sm:px-0 2xl:ml-85">
+                     text-center   lg:ml-36 2xl:ml-[-835]
+                     px-4 sm:px-0 ">
         Що ми пропонуємо
       </h2>
 
