@@ -94,7 +94,7 @@ export default function ProductionServices() {
       description: "Акумулятор у коробці під раму з можливістю інтеграції контролера.",
       price: "3 600",
       href: "/products/Bike",
-      image: undefined
+      image: "/Bike.png"
 
     },
     {
