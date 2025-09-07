@@ -9,18 +9,15 @@ const Product5Page = () => {
 
   return (
     <>
-      <div className="min-h-screen relative py-10 pt-20">
+      <div className="relative py-10 pt-20 mb-10">
         {/* Фони */}
         <img 
           src="/shademain2.png" 
           alt="" 
           className="absolute lg:mt-[-850px] z-[-10] bg-center bg-cover lg:ml-[-600px] mt-[-200px] ml-[-100px]" 
         />
-        <img 
-          src="/shademain2.png" 
-          alt="" 
-          className="absolute lg:mt-[-700px] z-[-10] bg-center bg-cover lg:ml-[300px] mt-40 lg:w-[300px] w-[400px] ml-60" 
-        />
+                <img src="/shademain2.png" alt="" className="absolute  z-[-10] bg-center bg-cover lg:mt-[-200px] lg:ml-[700px] mt-40 lg:w-[700px] w-[400px] ml-60" />
+
 
         <div className="max-w-7xl mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
