@@ -9,7 +9,7 @@ const Product4Page = () => {
 
   return (
     <>
-      <div className="min-h-screen relative py-10">
+      <div className="min-h-screen relative py-10 pt-20">
         {/* Фони */}
         <img 
           src="/shademain2.png" 

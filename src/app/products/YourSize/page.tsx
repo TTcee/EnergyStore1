@@ -9,7 +9,7 @@ const Product2Page = () => {
 
   return (
     <>
-      <div className="min-h-screen relative py-10">
+      <div className="min-h-screen relative py-10 pt-20">
         {/* Фони */}
         <img src="/shademain2.png" alt="" className="absolute lg:mt-[-850px] z-[-10] bg-center bg-cover lg:ml-[-600px] mt-[-200px] ml-[-100px]" />
         <img src="/shademain2.png" alt="" className="absolute lg:mt-[-700px] z-[-10] bg-center bg-cover lg:ml-[300px] mt-40 lg:w-[300px] w-[400px] ml-60" />
