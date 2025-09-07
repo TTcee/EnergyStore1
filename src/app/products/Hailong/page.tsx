@@ -204,7 +204,7 @@ const Product1Page = () => {
   );
 
   return (
-    <div className=" py-16">
+    <div className=" py-18">
       <img src="/shademain2.png" alt="" className="absolute lg:mt-[-850] z-[-10]  bg-center bg-cover lg:ml-[-600] mt-[-200] ml-[-100]"/>
       <img src="/shademain2.png" alt="" className="absolute lg:mt-[-700] z-[-10]  bg-center bg-cover lg:ml-[300] mt-70 lg:w-300 w-400 ml-60"/>
 
