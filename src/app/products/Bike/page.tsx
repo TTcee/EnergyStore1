@@ -16,7 +16,7 @@ const Product4Page = () => {
           alt="" 
           className="absolute lg:mt-[-850px] z-[-10] bg-center bg-cover lg:ml-[-600px] mt-[-200px] ml-[-100px]" 
         />
-                <img src="/shademain2.png" alt="" className="absolute  z-[-10] bg-center bg-cover lg:mt-[-200px] lg:ml-[700px] mt-40 lg:w-[700px] w-[400px] ml-60" />
+                <img src="/shademain2.png" alt="" className="absolute  z-[-10] bg-center bg-cover lg:mt-[-200px] lg:ml-[700px] mt-40 lg:w-[700px] w-[400px] ml-0" />
 
 
         <div className="max-w-7xl mx-auto px-5">
@@ -28,7 +28,7 @@ const Product4Page = () => {
                 className="bg-[linear-gradient(123.59deg,rgba(126,151,205,0.12)_2.68%,rgba(11,85,181,0.042)_101.21%)]
                   backdrop-blur-[38.5px] rounded-[20px] border border-gray-700 p-8 max-w-full lg:h-[500px] h-[350px] w-full"
               >
-                                                                                      <div className=" "><img src="/BikeProduct.png" alt="" className="lg:mt-10 ml-17 md:mx-auto md:my-auto md:w-60  md:h-60 w-60 h-60 lg:w-80 lg:h-80"/></div>
+                                                                                      <div className=" "><img src="/BikeProduct.png" alt="" className="lg:mt-10 ml-8 md:mx-auto md:my-auto md:w-60  md:h-60 w-60 h-60 lg:w-80 lg:h-80"/></div>
 
               </div>
             </div>
