@@ -9,7 +9,7 @@ export default function MainPage() {
 
   return (
     <>
-      <section id="hero" className="min-h-screen flex  text-white snap-start pt-10">
+      <section id="hero" className="min-h-screen flex  text-white snap-start pt-10 ">
         <img src="/shademain.png" alt="Моє зображення" className="absolute w-200 z-[-10] mt-[-100]" />
         <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-45 " />
           <div className="max-w-8xl  ml-4 flex  sm:ml-8 md:ml-16 lg:ml-41">

@@ -51,8 +51,9 @@ export default function RootLayout({
     <html
       lang="uk"
       className={`${montserratAlt.variable} ${geistMono.variable} ${geistSans.variable} ${rubikMonoOne.variable} ${montserrat.variable}`}
+      
     >
-      <body>
+      <body className="max-width:100vw overflow-x:hidden">
         <Header />
         <main>{children}</main>
         <Footer />

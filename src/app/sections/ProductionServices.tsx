@@ -119,7 +119,7 @@ export default function ProductionServices() {
       className="min-h-screen flex flex-col items-center justify-center  text-white py-16 snap-start pt-30"
     >
     <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-1000] ml-[-1300]  " />
-    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300" />
+    <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-300] ml-300 hidden" />
 
 
       <h2 className="text-3xl md:text-4xl font-extrabold mb-12 lg:ml-[-830]">Виробничі послуги</h2>

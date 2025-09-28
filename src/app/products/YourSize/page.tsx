@@ -12,7 +12,7 @@ const Product2Page = () => {
       <div className=" relative py-20 pt-20 mb-10">
         {/* Фони */}
         <img src="/shademain2.png" alt="" className="absolute lg:mt-[-850px] z-[-10] bg-center bg-cover lg:ml-[-600px] mt-[-200px] ml-[-100px]" />
-        <img src="/shademain2.png" alt="" className="absolute  z-[-10] bg-center bg-cover lg:mt-[-200px] lg:ml-[700px] mt-40 lg:w-[700px] w-[400px] ml-60" />
+        <img src="/shademain2.png" alt="" className="absolute  z-[-10] bg-center bg-cover lg:mt-[-200px] lg:ml-[700px] mt-40 lg:w-[700px] w-[400px] ml-0" />
 
         <div className="max-w-7xl mx-auto px-5">
           {/* sm & md = одна колонка, lg = дві колонки */}

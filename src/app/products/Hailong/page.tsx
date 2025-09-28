@@ -206,7 +206,7 @@ const Product1Page = () => {
   return (
     <div className=" py-18">
       <img src="/shademain2.png" alt="" className="absolute lg:mt-[-850] z-[-10]  bg-center bg-cover lg:ml-[-600] mt-[-200] ml-[-100]"/>
-      <img src="/shademain2.png" alt="" className="absolute lg:mt-[-700] z-[-10]  bg-center bg-cover lg:ml-[300] mt-70 lg:w-300 w-400 ml-60"/>
+      <img src="/shademain2.png" alt="" className="absolute lg:mt-[-700] z-[-10]  bg-center bg-cover lg:ml-[300] mt-70 lg:w-300 w-400 ml-[0]"/>
 
 
       <div className="max-w-7xl mx-auto px-5">
@@ -275,7 +275,7 @@ const Product1Page = () => {
                <button
   className="relative overflow-hidden bg-[linear-gradient(178.22deg,#2147E0_-26.59%,#000000_172.7%)]
              rounded-[10px] text-white font-semibold px-8 py-4
-             text-[13px] leading-[19px] tracking-[0.02em] w-xs border border-white/20
+             text-[13px] leading-[19px] tracking-[0.02em] sm:w-100 w-60 border border-white/20
              transition-transform duration-300 ease-in-out transform hover:scale-110 group cursor-pointer"
   onClick={() => setIsProductModalOpen(true)}
 >
@@ -288,7 +288,7 @@ const Product1Page = () => {
 </button>
 
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-green-400">
+                  <div className="sm:text-xl text-xl font-bold text-green-400">
                     {currentPrice} ₴
                   </div>
                 </div>

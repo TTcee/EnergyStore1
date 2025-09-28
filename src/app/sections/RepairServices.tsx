@@ -28,13 +28,13 @@ const AccordionItem = ({
   onConsultationClick: () => void;
 }) => {
   return (
-    <div className="border-b border-gray-600">
+    <div className="border-b border-gray-600 sm:w-80 lg:w-300 ">
       {/* Заголовок - завжди видимий */}
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between py-8 text-left hover:bg-gray-800 transition-colors px-4 rounded-lg cursor-pointer"
       >
-        <h3 className="text-2xl font-bold text-white pr-8">
+        <h3 className="text-2xl font-bold text-white pr-8 w-60 lg:w-300">
           {service.title}
         </h3>
         
@@ -53,7 +53,7 @@ const AccordionItem = ({
 
       {/* Контент що розкривається */}
       <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-        isOpen ? 'max-h-110 opacity-100 pb-8' : 'max-h-0 opacity-0 '
+        isOpen ? 'max-h-160 opacity-100 pb-8' : 'max-h-0 opacity-0 '
       }`}>
         <div className="px-4">
           {/* Короткий опис (якщо є) */}
@@ -131,8 +131,8 @@ export default function RepairServices() {
   return (  
     <>
     <section className="min-h-screen text-white py-16 px-4 snap-star pt-40" id='repair'>
-      <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-20 mt-[-100]" />
-      <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-250] ml-150" />
+      <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] ml-[-20] mt-[-100]" />
+      <img src="/shademain2.png" alt="Моє зображення" className="absolute w-150 z-[-9] mt-[-250] ml-150 hidden" />
 
       <div className="max-w-300 mx-auto">
         {/* Заголовок */}
@@ -141,7 +141,7 @@ export default function RepairServices() {
         </h1>
 
           {/* Accordion */}
-          <div className="space-y-4">
+          <div className="space-y-4 sm:w-85 lg:w-300 ">
             {services.map((service) => (
               <AccordionItem
                 key={service.id}
